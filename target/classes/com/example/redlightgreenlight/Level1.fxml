@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level1Controller">
+   <children>
+      <Button layoutX="186.0" layoutY="43.0" mnemonicParsing="false" onAction="#start" text="reset" />
+      <ImageView fx:id="ronaldo" fitHeight="55.0" fitWidth="42.0" layoutX="52.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ronaldo.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="33.0" layoutY="34.0" text="Timer:" />
+      <Label fx:id="timerNumLabel" layoutX="74.0" layoutY="34.0" text="0" />
+      <ImageView fx:id="messi" fitHeight="78.0" fitWidth="42.0" layoutX="1177.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@caller.jpeg" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="finishLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="1219.0" layoutY="237.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+   </children>
+</Pane>
