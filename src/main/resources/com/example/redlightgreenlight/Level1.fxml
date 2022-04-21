@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level1Controller">
+<Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level1Controller">
    <children>
-      <Button layoutX="186.0" layoutY="43.0" mnemonicParsing="false" onAction="#start" text="reset" />
-      <ImageView fx:id="ronaldo" fitHeight="55.0" fitWidth="42.0" layoutX="52.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@SnowdinBackground.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="619.0" layoutY="64.0" mnemonicParsing="false" onAction="#start" text="reset" />
+      <ImageView fx:id="ronaldo" fitHeight="55.0" fitWidth="42.0" layoutX="14.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@ronaldo.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="33.0" layoutY="34.0" text="Timer:" />
-      <Label fx:id="timerNumLabel" layoutX="74.0" layoutY="34.0" text="0" />
-      <ImageView fx:id="messi" fitHeight="78.0" fitWidth="42.0" layoutX="1177.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="616.0" layoutY="35.0" text="Timer:" textFill="WHITE" />
+      <Label fx:id="timerNumLabel" layoutX="657.0" layoutY="35.0" text="0" textFill="WHITE" />
+      <Rectangle fx:id="finishLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="158.0" layoutX="1224.0" layoutY="378.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+      <ImageView fx:id="messi" fitHeight="78.0" fitWidth="42.0" layoutX="1182.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@caller.jpeg" />
          </image>
       </ImageView>
-      <Rectangle fx:id="finishLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="1219.0" layoutY="237.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
    </children>
 </Pane>

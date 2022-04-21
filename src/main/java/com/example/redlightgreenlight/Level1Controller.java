@@ -42,8 +42,8 @@ public class Level1Controller implements Initializable {
 
     @FXML
     void start(){
-        ronaldo.setLayoutX(0);
-        ronaldo.setLayoutY(0);
+        System.out.println(ronaldo.getLayoutX());
+        System.out.println(ronaldo.getLayoutY());
     }
 
     // GAME FUNCTIONALITY
@@ -77,11 +77,11 @@ public class Level1Controller implements Initializable {
                 gameWin();
             }
 
-            if(wPressed.get() && ronaldo.getLayoutY() > 0) {
+            if(wPressed.get() && ronaldo.getLayoutY() > 364) {
                 ronaldo.setLayoutY(ronaldo.getLayoutY() - movementVariable);
             }
 
-            if(sPressed.get() && ronaldo.getLayoutY() < scene.getPrefHeight() - ronaldo.getFitHeight()){
+            if(sPressed.get() && ronaldo.getLayoutY() < 484){
                 ronaldo.setLayoutY(ronaldo.getLayoutY() + movementVariable);
             }
 
