@@ -199,7 +199,7 @@ public class Level1Controller implements Initializable {
         try {
             ronaldo.setLayoutX(2000);
             labelTimer.cancel();
-            game.changeScene("titleScreenController.fxml");
+            game.changeScene("Level3.fxml");
 
         } catch (IOException e) {
             e.printStackTrace();
