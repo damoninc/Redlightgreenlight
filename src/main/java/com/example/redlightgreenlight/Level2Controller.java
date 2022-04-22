@@ -148,7 +148,7 @@ public class Level2Controller implements Initializable {
                 else {
                     try {
                         System.out.println("transition");
-                        game.changeScene("titleScreen.fxml");
+                        game.changeScene("loseScreen.fxml");
                         labelTimer.cancel();
                     } catch (IOException e) {
                         e.printStackTrace();
