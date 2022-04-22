@@ -14,24 +14,24 @@
          </image>
       </ImageView>
         <Button layoutX="145.0" layoutY="20.0" mnemonicParsing="false" onAction="#start" opacity="0.0" text="Reset" />
-      <ImageView fx:id="ronaldo" fitHeight="81.0" fitWidth="55.0" layoutX="59.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ronaldo" fitHeight="81.0" fitWidth="55.0" layoutX="70.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@ronaldo.png" />
          </image>
       </ImageView>
       <Label layoutX="70.0" layoutY="24.0" text="Time: " textFill="WHITE" />
       <Label fx:id="timerNumLabel" layoutX="103.0" layoutY="25.0" text="0" textFill="WHITE" />
-      <ImageView fx:id="messi" fitHeight="82.0" fitWidth="53.0" layoutX="537.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="messi" fitHeight="82.0" fitWidth="53.0" layoutX="606.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@messi.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="endLine" fitHeight="9.0" fitWidth="35.0" layoutX="1022.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" scaleY="10.0">
+      <ImageView fx:id="endLine" fitHeight="9.0" fitWidth="35.0" layoutX="1198.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true" scaleY="10.0">
          <image>
             <Image url="@goalline.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="courtois" fitHeight="82.0" fitWidth="53.0" layoutX="952.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="courtois" fitHeight="82.0" fitWidth="53.0" layoutX="1140.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@courtois.png" />
          </image>
@@ -39,6 +39,21 @@
       <ImageView fx:id="neymar" fitHeight="82.0" fitWidth="53.0" layoutX="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@neymar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slidingGuy" fitHeight="54.0" fitWidth="106.0" layoutX="884.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sliding.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="felaini" fitHeight="82.0" fitWidth="53.0" layoutX="368.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@felaini.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageForCollision" fitHeight="82.0" fitWidth="53.0" layoutX="190.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@felaini.png" />
          </image>
       </ImageView>
    </children>

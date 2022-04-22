@@ -38,6 +38,15 @@ public class Level3Controller implements Initializable {
     private ImageView ronaldo;
 
     @FXML
+    private ImageView felaini;
+
+    @FXML
+    private ImageView imageForCollision;
+
+    @FXML
+    private ImageView slidingGuy;
+
+    @FXML
     private ImageView messi;
 
     @FXML
@@ -63,18 +72,13 @@ public class Level3Controller implements Initializable {
         @Override
         public void handle(long timestamp) {
 
-            if ((checkCollision(ronaldo,messi) == true) || (checkCollision(ronaldo,neymar) == true) ){
-                ronaldo.setLayoutX(120);
-                ronaldo.setLayoutY(260);
+            if ((checkCollision(ronaldo,messi) == true) || (checkCollision(ronaldo,neymar) == true) || (checkCollision(ronaldo,courtois) == true) || (checkCollision(ronaldo,felaini) == true) || (checkCollision(ronaldo,slidingGuy) == true) ){
+                ronaldo.setLayoutX(60);
+                ronaldo.setLayoutY(320);
                 labelTimer.cancel();
                 setTimer();
             }
-            if (checkCollision(ronaldo,courtois) == true){
-                ronaldo.setLayoutX(120);
-                ronaldo.setLayoutY(260);
-                labelTimer.cancel();
-                setTimer();
-            }
+
             if (checkCollision(ronaldo,endLine) == true){
                 ronaldo.setLayoutX(120);
                 ronaldo.setLayoutY(260);
@@ -87,7 +91,7 @@ public class Level3Controller implements Initializable {
             }
 
             if(sPressed.get() && ronaldo.getLayoutY() < scene.getPrefHeight() - ronaldo.getFitHeight()){
-                ronaldo.setLayoutY(ronaldo.getLayoutY() + movementVariable);
+                    ronaldo.setLayoutY(ronaldo.getLayoutY() + movementVariable);
             }
 
             if(aPressed.get() && ronaldo.getLayoutX() > 0){
@@ -105,9 +109,11 @@ public class Level3Controller implements Initializable {
         timerNumLabel.setText(String.valueOf(time));
         setTimer();
         movementSetup();
-        moveImage(neymar, 3, scene.getPrefHeight());
-        moveImage(messi, 2, scene.getPrefHeight());
-        moveImage(courtois,0.8, scene.getPrefHeight()/1.25);
+        moveImageY(neymar, 3, scene.getPrefHeight());
+        moveImageY(messi, 2, scene.getPrefHeight());
+        moveImageY(courtois,0.8, scene.getPrefHeight()/1.25);
+        moveImageX(felaini, 2, scene.getPrefWidth()/1.85);
+        moveImageX(slidingGuy, 2, -scene.getPrefWidth()/2.30);
         keyPressed.addListener(((observableValue, aBoolean, t1)-> {
                 timer.start();
         }));
@@ -172,12 +178,21 @@ public class Level3Controller implements Initializable {
         }
         return false;
     }
-    public void moveImage(ImageView image1, double velocity, Double distance){
+    public void moveImageY(ImageView image1, double velocity, double distance){
         transition = new TranslateTransition();
         transition.setNode(image1);
         transition.setDuration(Duration.seconds(velocity));
         transition.setCycleCount(TranslateTransition.INDEFINITE);
         transition.setToY(distance - image1.getFitHeight());
+        transition.setAutoReverse(true);
+        transition.play();
+    }
+    public void moveImageX(ImageView image1, double velocity, double distance){
+        transition = new TranslateTransition();
+        transition.setNode(image1);
+        transition.setDuration(Duration.seconds(velocity));
+        transition.setCycleCount(TranslateTransition.INDEFINITE);
+        transition.setToX(distance - image1.getFitHeight());
         transition.setAutoReverse(true);
         transition.play();
     }
