@@ -118,7 +118,7 @@ public class Level1Controller implements Initializable {
                 else {
                     try {
                         System.out.println("transition");
-                        game.changeScene("titleScreenController.fxml");
+                        game.changeScene("titleScreen.fxml");
                         labelTimer.cancel();
                     } catch (IOException e) {
                         e.printStackTrace();

@@ -20,7 +20,7 @@ public class Redlightgreenlight extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         game_stage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("titleScreenController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("titleScreen.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("Red Light Green Light");
         primaryStage.setScene(scene);
