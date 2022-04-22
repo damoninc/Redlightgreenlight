@@ -72,7 +72,7 @@ public class Level3Controller implements Initializable {
         @Override
         public void handle(long timestamp) {
 
-            if ((checkCollision(ronaldo,messi) == true) || (checkCollision(ronaldo,neymar) == true) || (checkCollision(ronaldo,courtois) == true) || (checkCollision(ronaldo,felaini) == true) || (checkCollision(ronaldo,slidingGuy) == true) ){
+            if ((checkCollision(ronaldo, messi)) || (checkCollision(ronaldo,neymar) == true) || (checkCollision(ronaldo,courtois) == true) || (checkCollision(ronaldo,felaini) == true) || (checkCollision(ronaldo,slidingGuy) == true) ){
                 ronaldo.setLayoutX(60);
                 ronaldo.setLayoutY(320);
                 labelTimer.cancel();
