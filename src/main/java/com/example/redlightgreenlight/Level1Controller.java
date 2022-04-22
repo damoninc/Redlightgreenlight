@@ -41,9 +41,7 @@ public class Level1Controller implements Initializable {
     private Rectangle finishLine;
 
     @FXML
-    void start(){
-        System.out.println(ronaldo.getLayoutX());
-        System.out.println(ronaldo.getLayoutY());
+    void start(){ // Needed for movement functionality (don't question it)
     }
 
     // GAME FUNCTIONALITY
@@ -199,7 +197,7 @@ public class Level1Controller implements Initializable {
         try {
             ronaldo.setLayoutX(2000);
             labelTimer.cancel();
-            game.changeScene("Level3.fxml");
+            game.changeScene("Level2.fxml");
 
         } catch (IOException e) {
             e.printStackTrace();
