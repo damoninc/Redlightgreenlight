@@ -41,7 +41,7 @@ public class Level1Controller implements Initializable {
     private Rectangle finishLine;
 
     @FXML
-    void start(){ // Needed for movement functionality (don't question it)
+    void start(){
     }
 
     // GAME FUNCTIONALITY
@@ -67,8 +67,6 @@ public class Level1Controller implements Initializable {
             if (checkCollision(ronaldo, messi)){
                 ronaldo.setLayoutX(120);
                 ronaldo.setLayoutY(260);
-                labelTimer.cancel();
-                setTimer();
             }
 
             if (checkCollision(ronaldo, finishLine)){

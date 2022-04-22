@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -80,10 +81,7 @@ public class Level3Controller implements Initializable {
             }
 
             if (checkCollision(ronaldo,endLine) == true){
-                ronaldo.setLayoutX(120);
-                ronaldo.setLayoutY(260);
-                labelTimer.cancel();
-                setTimer();
+                gameWin();
             }
 
             if(wPressed.get() && ronaldo.getLayoutY() > 0) {
@@ -196,5 +194,19 @@ public class Level3Controller implements Initializable {
         transition.setAutoReverse(true);
         transition.play();
     }
+
+    public void gameWin(){
+        Redlightgreenlight game = new Redlightgreenlight();
+        System.out.println("transition");
+        try {
+            ronaldo.setLayoutX(2000);
+            labelTimer.cancel();
+            game.changeScene("winScreen.fxml");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
