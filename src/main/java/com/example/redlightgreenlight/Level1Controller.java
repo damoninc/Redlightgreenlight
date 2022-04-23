@@ -153,6 +153,7 @@ public class Level1Controller implements Initializable {
                     greenlightTime -= 1;
 
                 }else{
+                    greenTimer.cancel();
                     checkMovement(player, x, y);
                 }
 
@@ -220,7 +221,7 @@ public class Level1Controller implements Initializable {
         if (image.getLayoutX() != x || image.getLayoutY() != y){
             player.setLayoutX(120);
             player.setLayoutY(250);
-            greenTimer.cancel();
+
         }
     }
 
