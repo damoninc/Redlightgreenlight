@@ -51,10 +51,5 @@
             <Image url="@felaini.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageForCollision" fitHeight="82.0" fitWidth="53.0" layoutX="190.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@felaini.png" />
-         </image>
-      </ImageView>
    </children>
 </Pane>

@@ -42,9 +42,6 @@ public class Level3Controller implements Initializable {
     private ImageView felaini;
 
     @FXML
-    private ImageView imageForCollision;
-
-    @FXML
     private ImageView slidingGuy;
 
     @FXML
