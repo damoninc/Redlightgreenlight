@@ -1,12 +1,10 @@
 package com.example.redlightgreenlight;
 import javafx.animation.AnimationTimer;
-import javafx.animation.Transition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -26,10 +24,10 @@ public class Level1Controller implements Initializable {
 
     
     @FXML
-    private ImageView ronaldo;
+    private ImageView player;
 
     @FXML
-    private ImageView messi;
+    private ImageView rock;
 
     @FXML
     private Label timerNumLabel;
@@ -45,8 +43,13 @@ public class Level1Controller implements Initializable {
     }
 
     // GAME FUNCTIONALITY
-    int time;
+    int game_time;
+    int greenlightTime;
     Timer labelTimer;
+    Timer greenTimer;
+    double x;
+    double y;
+
 
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
@@ -55,48 +58,54 @@ public class Level1Controller implements Initializable {
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
-    private int movementVariable = 10;
+    private int movementVariable = 2;
 
     private TranslateTransition transition;
+
 
     AnimationTimer timer = new AnimationTimer() {
 
         @Override
         public void handle(long timestamp) {
 
-            if (checkCollision(ronaldo, messi)){
-                ronaldo.setLayoutX(120);
-                ronaldo.setLayoutY(260);
-            }
-
-            if (checkCollision(ronaldo, finishLine)){
+            if (checkCollision(player, finishLine)){
                 gameWin();
             }
 
-            if(wPressed.get() && ronaldo.getLayoutY() > 364) {
-                ronaldo.setLayoutY(ronaldo.getLayoutY() - movementVariable);
+            if (checkCollision(player, rock)){
+                movementVariable = 1;
+            }
+            else movementVariable = 2;
+
+
+            if(wPressed.get() && player.getLayoutY() > 364) {
+                player.setLayoutY(player.getLayoutY() - movementVariable);
+
             }
 
-            if(sPressed.get() && ronaldo.getLayoutY() < 484){
-                ronaldo.setLayoutY(ronaldo.getLayoutY() + movementVariable);
+            if(sPressed.get() && player.getLayoutY() < 484){
+                player.setLayoutY(player.getLayoutY() + movementVariable);
+
             }
 
-            if(aPressed.get() && ronaldo.getLayoutX() > 0){
-                ronaldo.setLayoutX(ronaldo.getLayoutX() - movementVariable);
+            if(aPressed.get() && player.getLayoutX() > 0){
+                player.setLayoutX(player.getLayoutX() - movementVariable);
+
             }
 
-            if(dPressed.get() && ronaldo.getLayoutX() < scene.getPrefWidth() - ronaldo.getFitWidth()){
-                ronaldo.setLayoutX(ronaldo.getLayoutX() + movementVariable);
+            if(dPressed.get() && player.getLayoutX() < scene.getPrefWidth() - player.getFitWidth()){
+                player.setLayoutX(player.getLayoutX() + movementVariable);
+
             }
         }
     };
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        timerNumLabel.setText(String.valueOf(time));
+        timerNumLabel.setText(String.valueOf(game_time));
+        countdownGl();
         setTimer();
         movementSetup();
-        moveImage(messi);
         keyPressed.addListener(((observableValue, aBoolean, t1)-> {
             timer.start();
         }));
@@ -105,13 +114,13 @@ public class Level1Controller implements Initializable {
     public void setTimer() {
         Redlightgreenlight game = new Redlightgreenlight();
         labelTimer = new Timer();
-        time = 11;
+        game_time = 30;
         labelTimer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                if(time > 0)
+                if(game_time > 0)
                 {
-                    time -= 1;
-                    Platform.runLater(() -> timerNumLabel.setText(String.valueOf(time)));
+                    game_time -= 1;
+                    Platform.runLater(() -> timerNumLabel.setText(String.valueOf(game_time)));
                 }
                 else {
                     try {
@@ -123,8 +132,36 @@ public class Level1Controller implements Initializable {
                     }
                 }
             }
-        }, 1000,1000);
+        }, 0,1000);
     }
+
+    public void countdownGl(){
+        greenTimer = new Timer();
+        int random = (int)(Math.random() * 6) + 3;
+        greenlightTime = random;
+        System.out.println(greenlightTime);
+        greenTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (greenlightTime > 1) {
+                    greenlightTime -= 1;
+                    System.out.println(greenlightTime);
+                } else if (greenlightTime == 1) {
+                    System.out.println("Redlight");
+                    x = player.getLayoutX();
+                    y = player.getLayoutY();
+                    greenlightTime -= 1;
+
+                }else{
+                    checkMovement(player, x, y);
+                }
+
+            }
+        }, 0, 500);
+
+    }
+
+
 
     public void movementSetup(){
         scene.setOnKeyPressed(e -> {
@@ -177,6 +214,14 @@ public class Level1Controller implements Initializable {
             return true;
         }
         return false;
+    } // End Collision Checkers
+
+    public void checkMovement(ImageView image, double x, double y){
+        if (image.getLayoutX() != x || image.getLayoutY() != y){
+            player.setLayoutX(120);
+            player.setLayoutY(250);
+            greenTimer.cancel();
+        }
     }
 
     public void moveImage(ImageView image1){
@@ -184,7 +229,7 @@ public class Level1Controller implements Initializable {
         transition.setNode(image1);
         transition.setDuration(Duration.seconds(2));
         transition.setCycleCount(TranslateTransition.INDEFINITE);
-        transition.setToY(scene.getPrefHeight() - messi.getFitHeight());
+        transition.setToY(scene.getPrefHeight() - image1.getFitHeight());
         transition.setAutoReverse(true);
         transition.play();
     }
@@ -193,7 +238,7 @@ public class Level1Controller implements Initializable {
         Redlightgreenlight game = new Redlightgreenlight();
         System.out.println("transition");
         try {
-            ronaldo.setLayoutX(2000);
+            player.setLayoutX(2000);
             labelTimer.cancel();
             game.changeScene("Level2.fxml");
 
