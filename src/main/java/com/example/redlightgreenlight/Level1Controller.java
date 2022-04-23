@@ -143,22 +143,27 @@ public class Level1Controller implements Initializable {
         greenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (greenlightTime > 1) {
+                if (greenlightTime > 2) {
                     greenlightTime -= 1;
                     System.out.println(greenlightTime);
-                } else if (greenlightTime == 1) {
+
+                } else if (greenlightTime == 2) {
                     System.out.println("Redlight");
+                    greenlightTime -= 1;
+                }
+                else if (greenlightTime == 1){
                     x = player.getLayoutX();
                     y = player.getLayoutY();
                     greenlightTime -= 1;
-
-                }else{
+                }
+                else{
                     greenTimer.cancel();
                     checkMovement(player, x, y);
+
                 }
 
             }
-        }, 0, 500);
+        }, 0, 1000);
 
     }
 

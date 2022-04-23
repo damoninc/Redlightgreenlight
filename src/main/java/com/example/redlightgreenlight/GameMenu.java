@@ -30,12 +30,14 @@ import java.nio.file.Paths;
 public class GameMenu extends Application {
 
     private static GameMenu.gameMenu gameMenu;
+    private static Stage game_stage;
     @Override
     public void start(Stage stage) throws Exception {
+        game_stage = stage;
         Pane root = new Pane();
-        root.setPrefSize(800,600);  // set dimensions
+        root.setPrefSize(1280,720);  // set dimensions
         // Load in image
-        InputStream is = Files.newInputStream(Paths.get("C:\\Users\\sevon\\IdeaProjects\\Project\\src\\main\\resources\\com\\example\\project/impossiblepentagonlooping.gif"));
+        InputStream is = Files.newInputStream(Paths.get("C:\\Users\\Damon\\Documents\\Java Projects\\CSC 331\\Redlightgreenlight\\src\\main\\resources\\com\\example\\redlightgreenlight\\impossiblepentagonlooping.gif"));
         Image img = new Image(is);  // set image to variable
         is.close();  // close image
 
@@ -74,6 +76,11 @@ public class GameMenu extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }  // end bracket for start
+
+    protected void changeScene(String fxml) throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        game_stage.getScene().setRoot(pane);
+    }
 
     private class gameMenu extends Parent {
         public gameMenu(){
