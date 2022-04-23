@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
@@ -39,13 +40,18 @@ public class Level1Controller implements Initializable {
     private Rectangle finishLine;
 
     @FXML
+    private Rectangle redGreenRectangle;
+
+    @FXML
     void start(){
     }
 
     // GAME FUNCTIONALITY
     int game_time;
-    int greenlightTime;
+    int redLightTimer;
+    int greenLightTimer;
     Timer labelTimer;
+    Timer redTimer;
     Timer greenTimer;
     double x;
     double y;
@@ -138,28 +144,23 @@ public class Level1Controller implements Initializable {
     public void countdownGl(){
         greenTimer = new Timer();
         int random = (int)(Math.random() * 6) + 3;
-        greenlightTime = random;
-        System.out.println(greenlightTime);
+        greenLightTimer = 5;
+        System.out.println(greenLightTimer);
         greenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (greenlightTime > 2) {
-                    greenlightTime -= 1;
-                    System.out.println(greenlightTime);
-
-                } else if (greenlightTime == 2) {
+                if (greenLightTimer > 1) {
+                    greenLightTimer -= 1;
+                    System.out.println(greenLightTimer);
+                } else if (greenLightTimer == 1) {
                     System.out.println("Redlight");
-                    greenlightTime -= 1;
-                }
-                else if (greenlightTime == 1){
+                    redGreenRectangle.setFill(Color.RED);
+                    greenLightTimer -= 1;
+                }else{
                     x = player.getLayoutX();
                     y = player.getLayoutY();
-                    greenlightTime -= 1;
-                }
-                else{
                     greenTimer.cancel();
-                    checkMovement(player, x, y);
-
+                    countdownRl();
                 }
 
             }
@@ -167,7 +168,34 @@ public class Level1Controller implements Initializable {
 
     }
 
+    public void countdownRl(){
+        redTimer = new Timer();
+        int random = (int)(Math.random() * 6) + 3;
+        redLightTimer = 5;
+        System.out.println(redLightTimer);
+        redTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (redLightTimer != 0){
+                    checkMovement(player,x,y);
+                }
+                if (redLightTimer > 1) {
+                    redLightTimer -= 1;
+                    System.out.println(redLightTimer);
+                } else if (redLightTimer == 1) {
+                    System.out.println("GreenLight");
+                    redGreenRectangle.setFill(Color.GREEN);
+                    redLightTimer -= 1;
 
+                }else{
+                    redTimer.cancel();
+                    countdownGl();
+                }
+
+            }
+        }, 0, 1000);
+
+    }
 
     public void movementSetup(){
         scene.setOnKeyPressed(e -> {
@@ -224,9 +252,11 @@ public class Level1Controller implements Initializable {
 
     public void checkMovement(ImageView image, double x, double y){
         if (image.getLayoutX() != x || image.getLayoutY() != y){
-            player.setLayoutX(120);
-            player.setLayoutY(250);
-
+            player.setLayoutX(0);
+            player.setLayoutY(431);
+            redTimer.cancel();
+            redGreenRectangle.setFill(Color.GREEN);
+            countdownGl();
         }
     }
 
