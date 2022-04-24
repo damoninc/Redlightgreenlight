@@ -27,35 +27,36 @@ import java.util.TimerTask;
 public class Level2Controller implements Initializable {
 
     @FXML
-    private ImageView blackCar;
+    private ImageView blackCar; // Moving Obstacle
 
     @FXML
-    private ImageView blueCar;
+    private ImageView blueCar; // Moving Obstacle
 
     @FXML
-    private Rectangle finishLine;
+    private Rectangle finishLine; // finish line, proceeds to next level
 
     @FXML
-    private ImageView greenCar;
+    private ImageView greenCar; // Moving Obstacle
 
     @FXML
-    private ImageView player;
+    private ImageView player; // Player
 
     @FXML
     private Pane scene;
 
     @FXML
-    private Label timerNumLabel;
+    private Label timerNumLabel; // Game timer
 
     @FXML
-    private ImageView yellowCar;
+    private ImageView yellowCar; // Moving Obstacle
 
     @FXML
-    private Label greenredLabel;
+    private Label greenredLabel; // Redlight green light call out
 
     @FXML
-    private ImageView peeker;
+    private ImageView peeker; // Reorients based on phase
 
+    // Peeker reorientation
     Image peeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("CartmanLooking.png")));
     Image notpeeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("CartmanNotLooking.png")));
 
@@ -63,16 +64,18 @@ public class Level2Controller implements Initializable {
     void start(){ // Needed for movement
     }
 
-    // GAME FUNCTIONALITY
-    int game_time;
-    int redLightTimer;
-    int greenLightTimer;
-    Timer labelTimer;
-    Timer redTimer;
-    Timer greenTimer;
-    double x;
-    double y;
+    // ALL GAME FUNCTIONALITY BELOW
+    // -----------------------------
+    int game_time; // Main game timer to decrement
+    int redLightTimer; // Red light timer to decrement
+    int greenLightTimer; // Green light timer to decrement
+    Timer labelTimer; // Main game timer object
+    Timer redTimer; // Red light timer object
+    Timer greenTimer; // Green light timer object.
+    double x; // Player x value for movement checking
+    double y; // Player y value for movement checking
 
+    // Boolean properties for key presses
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
@@ -80,10 +83,15 @@ public class Level2Controller implements Initializable {
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
+    //PLAYER MOVEMENT
+    // Player movement speed
     private int movementVariable = 5;
 
+    // Moves player
     private TranslateTransition transition;
 
+    // Animation timer with handlers updating constantly
+    // Contains various method calls to collision checkers and key presses
     AnimationTimer timer = new AnimationTimer() {
 
         @Override
@@ -133,6 +141,7 @@ public class Level2Controller implements Initializable {
         } // END EVENT HANDLING
     };
 
+    // Initialize method that starts the level with requirements
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timerNumLabel.setText(String.valueOf(game_time));
@@ -148,19 +157,21 @@ public class Level2Controller implements Initializable {
         }));
     }
 
+    // TIMERS
+    // Main game timer
     public void setTimer() {
         Redlightgreenlight game = new Redlightgreenlight();
         labelTimer = new Timer();
         game_time = 45;
         labelTimer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                if(game_time > 0)
+                if(game_time > 0) // Decrements the game timer
                 {
                     game_time -= 1;
                     Platform.runLater(() -> timerNumLabel.setText(String.valueOf(game_time)));
                 }
                 else {
-                    try {
+                    try { // Only occurs when timer hits 0 and then player loses game
                         System.out.println("transition");
                         game.changeScene("loseScreen.fxml");
                         labelTimer.cancel();
@@ -171,26 +182,24 @@ public class Level2Controller implements Initializable {
                     }
                 }
             }
-        }, 1000,1000);
+        }, 0,1000); // Game timer intervals
     }
 
+    // Green light phase timer
     public void countdownGl() {
         greenTimer = new Timer();
         int random = (int) (Math.random() * 6) + 3;
         greenLightTimer = random;
-        System.out.println(greenLightTimer);
         greenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (greenLightTimer > 1) {
+                if (greenLightTimer > 1) { // Decrements time
                     greenLightTimer -= 1;
-                    System.out.println(greenLightTimer);
-                } else if (greenLightTimer == 1) {
-                    System.out.println("Redlight");
+                } else if (greenLightTimer == 1) { // When it reaches 1, changes to Redlight
                     greenredLabel.setTextFill(Color.RED);
                     Platform.runLater(() -> greenredLabel.setText("Red light!"));
                     greenLightTimer -= 1;
-                } else {
+                } else { // Checks for player movement at 0 and changes peeker
                     peeker.setImage(peeking);
                     x = player.getLayoutX();
                     y = player.getLayoutY();
@@ -198,27 +207,23 @@ public class Level2Controller implements Initializable {
                     countdownRl();
                 }
             }
-        }, 0, 500);
+        }, 0, 500); // 500ms intervals allowing for .5sec grace period for player
     }
-
+        // Red Light timer
         public void countdownRl() {
             redTimer = new Timer();
             int random = (int) (Math.random() * 6) + 3;
             redLightTimer = random;
-            System.out.println(redLightTimer);
             redTimer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
-                    if (redLightTimer != 0) {
+                    if (redLightTimer != 0) { // Decrements timer and checks player movement
                         checkMovement(player, x, y);
                     }
-                    if (redLightTimer > 1) {
+                    if (redLightTimer > 1) { // One last decrement before change to Green Light
                         redLightTimer -= 1;
-                        System.out.println(redLightTimer);
-                    } else if (redLightTimer == 1) {
-                        System.out.println("GreenLight");
+                    } else if (redLightTimer == 1) { // Changes to Green light and changes peeker
                         greenredLabel.setTextFill(Color.GREEN);
-                        System.out.println(greenredLabel.getTextFill());
                         Platform.runLater(() -> greenredLabel.setText("Green light!"));
                         peeker.setImage(notpeeking);
                         redLightTimer -= 1;
@@ -231,8 +236,10 @@ public class Level2Controller implements Initializable {
                 }
             }, 0, 500);
         }
+        // END TIMERS
 
-
+    // ALL USED IN HANDLER
+    // Movement setup needed to validate key presses.
     public void movementSetup(){
         scene.setOnKeyPressed(e -> {
             if(e.getCode() == KeyCode.W) {
@@ -285,7 +292,7 @@ public class Level2Controller implements Initializable {
         }
         return false;
     }
-
+    // Player movement checker, sets player back to start if they
     public void checkMovement(ImageView image, double x, double y){
         if (image.getLayoutX() != x || image.getLayoutY() != y){
             player.setLayoutX(0);
@@ -298,6 +305,7 @@ public class Level2Controller implements Initializable {
         }
     }
 
+    // Moves the moving obstacles dependent upon orientation speed and distance
     public void moveImage(ImageView image1, double velocity, boolean up, double distance){
         transition = new TranslateTransition();
         transition.setNode(image1);
@@ -312,9 +320,9 @@ public class Level2Controller implements Initializable {
         transition.play();
     }
 
+    // Game win method that takes player to next level
     public void gameWin(){
         Redlightgreenlight game = new Redlightgreenlight();
-        System.out.println("transition");
         try {
             player.setLayoutX(2000);
             labelTimer.cancel();
@@ -326,5 +334,4 @@ public class Level2Controller implements Initializable {
             e.printStackTrace();
         }
     }
-
 }
