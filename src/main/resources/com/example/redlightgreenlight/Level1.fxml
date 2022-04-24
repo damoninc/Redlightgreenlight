@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level1Controller">
    <children>
@@ -14,16 +15,52 @@
             <Image url="@SnowdinBackground.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="player" fitHeight="50.0" fitWidth="42.0" layoutX="14.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="rock1" fitHeight="91.0" fitWidth="153.0" layoutX="172.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Rock.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="snowman3" fitHeight="95.0" fitWidth="64.0" layoutX="418.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@snowman.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="snowman2" fitHeight="91.0" fitWidth="52.0" layoutX="659.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@snowman.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="player" fitHeight="50.0" fitWidth="42.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Frisk.gif" />
          </image>
       </ImageView>
-      <Label layoutX="616.0" layoutY="35.0" text="Timer:" textFill="WHITE" />
-      <Label fx:id="timerNumLabel" layoutX="657.0" layoutY="35.0" text="0" textFill="WHITE" />
-      <Rectangle fx:id="finishLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="158.0" layoutX="1224.0" layoutY="378.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+      <Label layoutX="594.0" layoutY="14.0" text="Timer:" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font></Label>
+      <Label fx:id="timerNumLabel" layoutX="671.0" layoutY="14.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font></Label>
+      <Rectangle fx:id="finishLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="158.0" layoutX="1224.0" layoutY="378.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
       <Button layoutX="618.0" layoutY="52.0" mnemonicParsing="false" onAction="#start" opacity="0.0" text="reset" />
-      <ImageView fx:id="rock" fitHeight="91.0" fitWidth="153.0" layoutX="172.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="greenredLabel" layoutX="540.0" layoutY="55.0" text="Green Light!" textAlignment="CENTER" textFill="GREEN">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="peeker" fitHeight="80.0" fitWidth="42.0" layoutX="1203.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@SansNotLooking.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="snowman1" fitHeight="88.0" fitWidth="64.0" layoutX="559.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@snowman.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rock2" fitHeight="91.0" fitWidth="153.0" layoutX="802.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Rock.png" />
          </image>

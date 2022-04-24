@@ -8,14 +8,17 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,7 +30,19 @@ public class Level1Controller implements Initializable {
     private ImageView player;
 
     @FXML
-    private ImageView rock;
+    private ImageView rock1;
+
+    @FXML
+    private ImageView rock2;
+
+    @FXML
+    private ImageView snowman1;
+
+    @FXML
+    private ImageView snowman2;
+
+    @FXML
+    private ImageView snowman3;
 
     @FXML
     private Label timerNumLabel;
@@ -39,13 +54,24 @@ public class Level1Controller implements Initializable {
     private Rectangle finishLine;
 
     @FXML
+    private Label greenredLabel;
+
+    @FXML
+    private ImageView peeker;
+
+    Image peeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("SansLooking.png")));
+    Image notpeeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("SansNotLooking.png")));
+
+    @FXML
     void start(){
     }
 
     // GAME FUNCTIONALITY
     int game_time;
-    int greenlightTime;
+    int redLightTimer;
+    int greenLightTimer;
     Timer labelTimer;
+    Timer redTimer;
     Timer greenTimer;
     double x;
     double y;
@@ -72,7 +98,23 @@ public class Level1Controller implements Initializable {
                 gameWin();
             }
 
-            if (checkCollision(player, rock)){
+            if (checkCollision(player, rock1)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, rock2)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, snowman1)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, snowman2)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, snowman3)){
                 movementVariable = 1;
             }
             else movementVariable = 2;
@@ -132,29 +174,31 @@ public class Level1Controller implements Initializable {
                     }
                 }
             }
-        }, 0,1000);
+        }, 0,500);
     }
 
     public void countdownGl(){
         greenTimer = new Timer();
         int random = (int)(Math.random() * 6) + 3;
-        greenlightTime = random;
-        System.out.println(greenlightTime);
+        greenLightTimer = random;
+        System.out.println(greenLightTimer);
         greenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (greenlightTime > 1) {
-                    greenlightTime -= 1;
-                    System.out.println(greenlightTime);
-                } else if (greenlightTime == 1) {
+                if (greenLightTimer > 1) {
+                    greenLightTimer -= 1;
+                    System.out.println(greenLightTimer);
+                } else if (greenLightTimer == 1) {
                     System.out.println("Redlight");
+                    greenredLabel.setTextFill(Color.RED);
+                    Platform.runLater(() -> greenredLabel.setText("Red light!"));
+                    greenLightTimer -= 1;
+                }else{
+                    peeker.setImage(peeking);
                     x = player.getLayoutX();
                     y = player.getLayoutY();
-                    greenlightTime -= 1;
-
-                }else{
                     greenTimer.cancel();
-                    checkMovement(player, x, y);
+                    countdownRl();
                 }
 
             }
@@ -162,7 +206,37 @@ public class Level1Controller implements Initializable {
 
     }
 
+    public void countdownRl(){
+        redTimer = new Timer();
+        int random = (int)(Math.random() * 6) + 3;
+        redLightTimer = random;
+        System.out.println(redLightTimer);
+        redTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (redLightTimer != 0){
+                    checkMovement(player,x,y);
+                }
+                if (redLightTimer > 1) {
+                    redLightTimer -= 1;
+                    System.out.println(redLightTimer);
+                } else if (redLightTimer == 1) {
+                    System.out.println("GreenLight");
+                    greenredLabel.setTextFill(Color.GREEN);
+                    System.out.println(greenredLabel.getTextFill());
+                    Platform.runLater(() -> greenredLabel.setText("Green light!"));
+                    peeker.setImage(notpeeking);
+                    redLightTimer -= 1;
 
+                }else{
+                    redTimer.cancel();
+                    countdownGl();
+                }
+
+            }
+        }, 0, 1000);
+
+    }
 
     public void movementSetup(){
         scene.setOnKeyPressed(e -> {
@@ -219,9 +293,12 @@ public class Level1Controller implements Initializable {
 
     public void checkMovement(ImageView image, double x, double y){
         if (image.getLayoutX() != x || image.getLayoutY() != y){
-            player.setLayoutX(120);
-            player.setLayoutY(250);
-
+            player.setLayoutX(0);
+            player.setLayoutY(431);
+            redTimer.cancel();
+            greenredLabel.setTextFill(Color.GREEN);
+            Platform.runLater(() -> greenredLabel.setText("Green light!"));
+            countdownGl();
         }
     }
 
@@ -237,10 +314,12 @@ public class Level1Controller implements Initializable {
 
     public void gameWin(){
         Redlightgreenlight game = new Redlightgreenlight();
-        System.out.println("transition");
+        System.out.println("LEVEL 2 LOADED");
         try {
             player.setLayoutX(2000);
             labelTimer.cancel();
+            greenTimer.cancel();
+            redTimer.cancel();
             game.changeScene("Level2.fxml");
 
         } catch (IOException e) {
