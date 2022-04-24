@@ -18,6 +18,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,7 +30,19 @@ public class Level1Controller implements Initializable {
     private ImageView player;
 
     @FXML
-    private ImageView rock;
+    private ImageView rock1;
+
+    @FXML
+    private ImageView rock2;
+
+    @FXML
+    private ImageView snowman1;
+
+    @FXML
+    private ImageView snowman2;
+
+    @FXML
+    private ImageView snowman3;
 
     @FXML
     private Label timerNumLabel;
@@ -46,8 +59,8 @@ public class Level1Controller implements Initializable {
     @FXML
     private ImageView peeker;
 
-    Image peeking = new Image(getClass().getResourceAsStream("SansLooking.png"));
-    Image notpeeking = new Image(getClass().getResourceAsStream("SansNotLooking.png"));
+    Image peeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("SansLooking.png")));
+    Image notpeeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("SansNotLooking.png")));
 
     @FXML
     void start(){
@@ -85,7 +98,23 @@ public class Level1Controller implements Initializable {
                 gameWin();
             }
 
-            if (checkCollision(player, rock)){
+            if (checkCollision(player, rock1)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, rock2)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, snowman1)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, snowman2)){
+                movementVariable = 1;
+            }
+
+            else if (checkCollision(player, snowman3)){
                 movementVariable = 1;
             }
             else movementVariable = 2;
@@ -285,7 +314,7 @@ public class Level1Controller implements Initializable {
 
     public void gameWin(){
         Redlightgreenlight game = new Redlightgreenlight();
-        System.out.println("transition");
+        System.out.println("LEVEL 2 LOADED");
         try {
             player.setLayoutX(2000);
             labelTimer.cancel();

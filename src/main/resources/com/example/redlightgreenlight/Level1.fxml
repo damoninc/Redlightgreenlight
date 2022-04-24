@@ -15,9 +15,19 @@
             <Image url="@SnowdinBackground.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="rock" fitHeight="91.0" fitWidth="153.0" layoutX="172.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="rock1" fitHeight="91.0" fitWidth="153.0" layoutX="172.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Rock.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="snowman3" fitHeight="95.0" fitWidth="64.0" layoutX="418.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@snowman.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="snowman2" fitHeight="91.0" fitWidth="52.0" layoutX="659.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@snowman.png" />
          </image>
       </ImageView>
       <ImageView fx:id="player" fitHeight="50.0" fitWidth="42.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
@@ -43,6 +53,16 @@
       <ImageView fx:id="peeker" fitHeight="80.0" fitWidth="42.0" layoutX="1203.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@SansNotLooking.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="snowman1" fitHeight="88.0" fitWidth="64.0" layoutX="559.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@snowman.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rock2" fitHeight="91.0" fitWidth="153.0" layoutX="802.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Rock.png" />
          </image>
       </ImageView>
    </children>
