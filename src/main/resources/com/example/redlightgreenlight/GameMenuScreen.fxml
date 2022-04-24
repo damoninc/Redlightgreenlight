@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.GameMenuController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@impossiblepentagonlooping.gif" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="203.0" layoutY="-6.0" text="REDLIGHT" textAlignment="CENTER" textFill="#9c0243">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="96.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.1">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="585.0" layoutY="48.0" text="GREENLIGHT" textAlignment="CENTER" textFill="#51eb56">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="96.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.67">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Text fx:id="Play" fill="#9c0243" layoutX="18.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAY" underline="true" wrappingWidth="174.20619201660156">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="52.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.1">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Text>
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="203.0" mnemonicParsing="false" onAction="#playButtonPressed" onMouseEntered="#playMouseEntered" onMouseExited="#playMouseExited" opacity="0.0" prefHeight="67.0" prefWidth="126.0" textFill="TRANSPARENT" wrapText="true" />
+      <Text fx:id="HowToPlay" fill="#9c0243" layoutX="14.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW TO PLAY" underline="true">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="52.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.1">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Text>
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="288.0" mnemonicParsing="false" onAction="#howToPlayPressed" onMouseEntered="#howToPlayMouseEntered" onMouseExited="#howToPlayMouseExited" opacity="0.0" prefHeight="76.0" prefWidth="310.0" textFill="TRANSPARENT" />
+      <Text fx:id="Exit" fill="#9c0243" layoutX="14.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXIT" underline="true">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="52.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.1">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Text>
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="389.0" mnemonicParsing="false" onAction="#exitButtonPressed" onMouseEntered="#exitMouseEntered" onMouseExited="#exitMouseExited" opacity="0.0" prefHeight="67.0" prefWidth="103.0" textFill="TRANSPARENT" />
+      <Rectangle fx:id="InstructionsRectangle" arcHeight="5.0" arcWidth="5.0" fill="#000000bd" height="459.0" layoutX="338.0" layoutY="221.0" opacity="0.0" stroke="#51eb56" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="8.0" width="927.0">
+         <effect>
+            <Bloom threshold="0.0">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect></Rectangle>
+      <Text fx:id="howToPlayTextPt1" fill="WHITE" layoutX="446.0" layoutY="304.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To RedLight GreenLight!">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="53.0" />
+         </font>
+      </Text>
+      <Text fx:id="howToPlayTextPt2" fill="WHITE" layoutX="349.0" layoutY="348.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The objective of the game is to get to the finish line without being seen by the peeker. At the top of your screen you will see Red and Green Light indicators that notify you when you're able to move and when you should stop. You will have 30 seconds to complete each level before time runs out. If you are caught by the peeker, or hit by a moving object, you will be sent back to the start line. If you fail to reach the finish line before time is up, then it's game over! Work quickly, but don't get greedy with your moves, it could cost you!   " textAlignment="CENTER" wrappingWidth="877.7737121582031">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="31.0" />
+         </font>
+      </Text>
+      <Text fx:id="howToPlayTextPt3" fill="WHITE" layoutX="593.0" layoutY="659.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use W,A,S,D keys to move" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="33.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
