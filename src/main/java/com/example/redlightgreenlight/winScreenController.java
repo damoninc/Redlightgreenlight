@@ -17,7 +17,7 @@ public class winScreenController {
     @FXML
     void returnMenuButtonPressed(ActionEvent event) throws IOException {
         Redlightgreenlight menuTrans = new Redlightgreenlight();
-        menuTrans.changeScene("titleScreen.fxml");
+        menuTrans.changeScene("GameMenuScreen.fxml");
     }
 
 }

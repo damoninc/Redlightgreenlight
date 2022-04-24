@@ -27,56 +27,62 @@ public class Level1Controller implements Initializable {
 
     
     @FXML
-    private ImageView player;
+    private ImageView player; // Player
 
     @FXML
-    private ImageView rock1;
+    private ImageView rock1; // Obstacle
 
     @FXML
-    private ImageView rock2;
+    private ImageView rock2; // Obstacle
 
     @FXML
-    private ImageView snowman1;
+    private ImageView snowman1; // Obstacle
 
     @FXML
-    private ImageView snowman2;
+    private ImageView snowman2; // Obstacle
 
     @FXML
-    private ImageView snowman3;
+    private ImageView snowman3; // Obstacle
 
     @FXML
-    private Label timerNumLabel;
+    private Label timerNumLabel; // Obstacle
 
     @FXML
     private Pane scene;
 
     @FXML
-    private Rectangle finishLine;
+    private Rectangle finishLine; // Touch finish line to continue
 
     @FXML
-    private Label greenredLabel;
+    private Label greenredLabel; // Changes colors
 
     @FXML
-    private ImageView peeker;
+    private ImageView peeker; // Changes images
 
+    // Peeker changes orientation
     Image peeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("SansLooking.png")));
     Image notpeeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("SansNotLooking.png")));
 
     @FXML
-    void start(){
+    void start(){ // Needed for movement
     }
 
-    // GAME FUNCTIONALITY
-    int game_time;
-    int redLightTimer;
-    int greenLightTimer;
-    Timer labelTimer;
-    Timer redTimer;
-    Timer greenTimer;
-    double x;
-    double y;
+    // GAME FUNCTIONALITY ALL BELOW
+    //----------------------------------
+
+    // Timers
+    int game_time; // Game timer to decrement
+    int redLightTimer; // Redlight timer to decrement
+    int greenLightTimer; // Greenlight timer to decrement
+    Timer labelTimer; // Main game timer object
+    Timer redTimer; // Redlight timer object
+    Timer greenTimer; // Greenlight timer object
+    double x; // X value for checking player movement
+    double y; // Y value for checking player movement
 
 
+    // PLAYER MOVEMENTS
+    // Boolean properties for key presses
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
@@ -84,16 +90,21 @@ public class Level1Controller implements Initializable {
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
+    // Player movement speed (IMPACTED BY MONITOR'S REFRESH RATE)
     private int movementVariable = 2;
 
+    // Used for moving player
     private TranslateTransition transition;
 
 
+    // Animation timer including a handler, constantly updating.
+    // Includes various method calls for collision checkers and key presses.
     AnimationTimer timer = new AnimationTimer() {
 
         @Override
         public void handle(long timestamp) {
 
+            // Collision checkers
             if (checkCollision(player, finishLine)){
                 gameWin();
             }
@@ -120,6 +131,7 @@ public class Level1Controller implements Initializable {
             else movementVariable = 2;
 
 
+            // Movement inputs
             if(wPressed.get() && player.getLayoutY() > 364) {
                 player.setLayoutY(player.getLayoutY() - movementVariable);
 
@@ -142,6 +154,7 @@ public class Level1Controller implements Initializable {
         }
     };
 
+    // Initialize method that sets up the game at start of level.
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timerNumLabel.setText(String.valueOf(game_time));
@@ -153,19 +166,21 @@ public class Level1Controller implements Initializable {
         }));
     }
 
+    // TIMERS
+    // Main game timer
     public void setTimer() {
         Redlightgreenlight game = new Redlightgreenlight();
         labelTimer = new Timer();
         game_time = 30;
         labelTimer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                if(game_time > 0)
+                if(game_time > 0) // Decrements game timer
                 {
                     game_time -= 1;
                     Platform.runLater(() -> timerNumLabel.setText(String.valueOf(game_time)));
                 }
                 else {
-                    try {
+                    try { // Only occurs when timer reaches 0 i.e gameover.
                         System.out.println("transition");
                         game.changeScene("loseScreen.fxml");
                         labelTimer.cancel();
@@ -176,69 +191,66 @@ public class Level1Controller implements Initializable {
                     }
                 }
             }
-        }, 0,1000);
+        }, 0,1000); // Timer intervals
     }
 
+    // Timer during Greenlight phase
     public void countdownGl(){
         greenTimer = new Timer();
         int random = (int)(Math.random() * 6) + 3;
         greenLightTimer = random;
-        System.out.println(greenLightTimer);
         greenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (greenLightTimer > 1) {
+                if (greenLightTimer > 1) { // Decrements greenlight counter
                     greenLightTimer -= 1;
-                    System.out.println(greenLightTimer);
-                } else if (greenLightTimer == 1) {
-                    System.out.println("Redlight");
+                } else if (greenLightTimer == 1) { // Decrements greenlight one last time
                     greenredLabel.setTextFill(Color.RED);
-                    Platform.runLater(() -> greenredLabel.setText("Red light!"));
+                    Platform.runLater(() -> greenredLabel.setText("Red light!")); // Changes text to Red Light
                     greenLightTimer -= 1;
-                }else{
+                }else{ // Player movement checker and changes peeker
                     peeker.setImage(peeking);
                     x = player.getLayoutX();
                     y = player.getLayoutY();
                     greenTimer.cancel();
-                    countdownRl();
+                    countdownRl(); // Transition to Red Light
                 }
             }
-        }, 0, 500);
+        }, 0, 500); // 500ms grace period to allow player to have reaction time.
 
     }
 
+    // Timer for Red Light phase
     public void countdownRl(){
         redTimer = new Timer();
         int random = (int)(Math.random() * 6) + 3;
         redLightTimer = random;
-        System.out.println(redLightTimer);
         redTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (redLightTimer != 0){
+                if (redLightTimer != 0){ // During phase, checks for player movement.
                     checkMovement(player,x,y);
                 }
                 if (redLightTimer > 1) {
                     redLightTimer -= 1;
-                    System.out.println(redLightTimer);
-                } else if (redLightTimer == 1) {
-                    System.out.println("GreenLight");
+                } else if (redLightTimer == 1) { // Changes Color and text to Red Light and changes peeker
                     greenredLabel.setTextFill(Color.GREEN);
-                    System.out.println(greenredLabel.getTextFill());
                     Platform.runLater(() -> greenredLabel.setText("Green light!"));
                     peeker.setImage(notpeeking);
                     redLightTimer -= 1;
 
                 }else{
                     redTimer.cancel();
-                    countdownGl();
+                    countdownGl(); // Transition to Green Light
                 }
 
             }
-        }, 0, 500);
+        }, 0, 500); // 500ms grace period for player movement.
 
     }
+    // END TIMERS
 
+    // Movement setup needed to validate key presses.
     public void movementSetup(){
         scene.setOnKeyPressed(e -> {
             if(e.getCode() == KeyCode.W) {
@@ -292,6 +304,8 @@ public class Level1Controller implements Initializable {
         return false;
     } // End Collision Checkers
 
+    // Movement Checker, if player moves during Redlight, takes back to start and starts greenlight again.
+    // Main game timer remains the same.
     public void checkMovement(ImageView image, double x, double y){
         if (image.getLayoutX() != x || image.getLayoutY() != y){
             player.setLayoutX(0);
@@ -304,19 +318,10 @@ public class Level1Controller implements Initializable {
         }
     }
 
-    public void moveImage(ImageView image1){
-        transition = new TranslateTransition();
-        transition.setNode(image1);
-        transition.setDuration(Duration.seconds(2));
-        transition.setCycleCount(TranslateTransition.INDEFINITE);
-        transition.setToY(scene.getPrefHeight() - image1.getFitHeight());
-        transition.setAutoReverse(true);
-        transition.play();
-    }
 
+    // Game Win method, changes scenes when game wins.
     public void gameWin(){
         Redlightgreenlight game = new Redlightgreenlight();
-        System.out.println("LEVEL 2 LOADED");
         try {
             player.setLayoutX(2000);
             labelTimer.cancel();
