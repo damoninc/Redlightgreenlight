@@ -57,6 +57,7 @@ public class Level3Controller implements Initializable {
     @FXML
     private ImageView peeker;
 
+    // seeker images
     Image peeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("RefLooking.png")));
     Image notpeeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("RefNotLooking.png")));
 
