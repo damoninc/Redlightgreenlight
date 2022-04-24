@@ -169,12 +169,14 @@ public class Level1Controller implements Initializable {
                         System.out.println("transition");
                         game.changeScene("loseScreen.fxml");
                         labelTimer.cancel();
+                        redTimer.cancel();
+                        greenTimer.cancel();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-        }, 0,500);
+        }, 0,1000);
     }
 
     public void countdownGl(){
@@ -200,7 +202,6 @@ public class Level1Controller implements Initializable {
                     greenTimer.cancel();
                     countdownRl();
                 }
-
             }
         }, 0, 500);
 
@@ -234,7 +235,7 @@ public class Level1Controller implements Initializable {
                 }
 
             }
-        }, 0, 1000);
+        }, 0, 500);
 
     }
 
@@ -298,6 +299,7 @@ public class Level1Controller implements Initializable {
             redTimer.cancel();
             greenredLabel.setTextFill(Color.GREEN);
             Platform.runLater(() -> greenredLabel.setText("Green light!"));
+            peeker.setImage(notpeeking);
             countdownGl();
         }
     }
