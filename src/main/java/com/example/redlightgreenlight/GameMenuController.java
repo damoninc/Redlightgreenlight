@@ -8,21 +8,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
+
 public class GameMenuController {
-
-    public class GameMenu {
-
-        @FXML
-        private ImageView BackgroundIMGView;
 
         @FXML
         private Text Exit;
 
         @FXML
         private Rectangle ExitRectangle;
-
-        @FXML
-        private Label GreenLightLabel;
 
         @FXML
         private Text HowToPlay;
@@ -42,19 +36,18 @@ public class GameMenuController {
         @FXML
         private Rectangle PlayRectangle;
 
-        @FXML
-        private Label RedLightLabel;
 
         @FXML
         private Pane ScreenPane;
 
         @FXML
-        void OnMouseClicked(MouseEvent event) {
+        void OnMouseClicked(MouseEvent event) throws IOException {
 
         }
 
         @FXML
         void OnMouseEntered(MouseEvent event) {
+
 
         }
 
@@ -65,4 +58,3 @@ public class GameMenuController {
 
     }
 
-}
