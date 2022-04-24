@@ -1,37 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.StoryScene3Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.StoryScene3Controller">
    <children>
-      <ImageView fitHeight="432.0" fitWidth="535.0" layoutY="-1.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
          <image>
-            <Image url="@roads.png" />
+            <Image url="@RoadBackground.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="414.0" fitWidth="535.0" layoutX="528.0" layoutY="-1.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@roads.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="-19.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="126.0" fitWidth="141.0" layoutX="-24.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Butters.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="113.0" layoutY="110.0" prefHeight="74.0" prefWidth="68.0" text="So many cars I hope I can make it..." textFill="WHITE" wrapText="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="341.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@car_topview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="815.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@BlackCar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="131.0" fitWidth="130.0" layoutX="1123.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CartmanLooking.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="175.0" layoutX="128.0" layoutY="21.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="10.0" width="1037.0" />
+      <Text fill="WHITE" layoutX="164.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jimmy made it through level 1, and has now entered level 2. Things are so different, it's like a dream! He looks at the busy streets he has to cross, and at the end was a cop who looks like he means business. Can Jimmy make it though . . " wrappingWidth="980.767333984375">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Arial Narrow Bold Italic" size="32.0" />
          </font>
-      </Label>
-      <Label layoutX="190.0" layoutY="14.0" prefHeight="74.0" prefWidth="240.0" text="You must cross the road without getting hit before the time runs out!" textFill="WHITE" wrapText="true">
+      </Text>
+      <Text fill="WHITE" layoutX="140.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I hope I can make it. .">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Arial Narrow Bold Italic" size="41.0" />
          </font>
-      </Label>
+      </Text>
+      <Text fill="WHITE" layoutX="805.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Respect My AUTHORITAH!">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="33.0" />
+         </font>
+      </Text>
+      <Text fx:id="PlayLevel2" fill="#9c0243" layoutX="854.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Play Level 2" underline="true">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="57.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.0">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Text>
+      <Button layoutX="849.0" layoutY="583.0" mnemonicParsing="false" onAction="#playLevel2ButtonPressed" onMouseEntered="#playLevel2MouseEntered" onMouseExited="#playLevel2MouseExited" opacity="0.0" prefHeight="103.0" prefWidth="298.0" textFill="TRANSPARENT" />
    </children>
 </AnchorPane>

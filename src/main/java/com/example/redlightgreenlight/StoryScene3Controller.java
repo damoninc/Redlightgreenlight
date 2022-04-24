@@ -2,41 +2,36 @@ package com.example.redlightgreenlight;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
 public class StoryScene3Controller {
 
     @FXML
-    private ImageView buttersImg;
+    private Text PlayLevel2;
 
     @FXML
-    private Label buttersLabel;
-
-    @FXML
-    private Label instructLabel;
-
-    @FXML
-    private Button lvl2Button;
-
-    @FXML
-    private ImageView roadImg;
-
-    @FXML
-    private ImageView roadImg2;
-
-    @FXML
-    private AnchorPane storyPane;
-
-    @FXML
-    void handleButtonAction(ActionEvent event) throws IOException {
+    void playLevel2ButtonPressed(ActionEvent event) throws IOException {
         Redlightgreenlight game = new Redlightgreenlight();
-        game.changeScene("Level2.fxml");
-    }
-    //
-}
+        game.changeScene("Level2.fxml");  // changes scene to level 2
 
+    }
+
+    @FXML
+    void playLevel2MouseEntered(MouseEvent event) {
+        PlayLevel2.setFill(Color.color(0.3176, 0.9216, 0.3373, 1.0)); // changes color to green
+        PlayLevel2.setTranslateX(30);  // Moves PlayLevel2 to the right
+
+    }
+
+    @FXML
+    void playLevel2MouseExited(MouseEvent event) {
+        PlayLevel2.setFill(Color.color(0.6118, 0.0078, 0.2627, 1.0));  // changes color to pink
+        PlayLevel2.setTranslateX(0);  // Moves PlayLevel2 back to its orig. spot
+
+    }
+
+}
