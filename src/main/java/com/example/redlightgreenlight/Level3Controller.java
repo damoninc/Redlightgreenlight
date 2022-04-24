@@ -24,8 +24,6 @@ import java.util.TimerTask;
 
 public class Level3Controller implements Initializable {
 
-
-
     @FXML
     private ImageView player;
 
@@ -83,44 +81,47 @@ public class Level3Controller implements Initializable {
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
-    private int movementVariable = 5;
+    private int movementVariable = 5; // player's velocity
 
     private TranslateTransition transition;
 
 
     AnimationTimer timer = new AnimationTimer() {
         @Override
-        public void handle(long timestamp) {
+        public void handle(long timestamp) {  // it checks if any of the keys is pressed to move the character
+                                            // and checks for collision between objects
 
             if ((checkCollision(player, messi)) || (checkCollision(player, neymar)) || (checkCollision(player, courtois)) || (checkCollision(player, felaini)) || (checkCollision(player, slidingGuy)) ){
+                // if player collides with any of the objects, send it back to the start.
                 player.setLayoutX(60);
                 player.setLayoutY(320);
             }
 
-            if (checkCollision(player, endLine)){
+            if (checkCollision(player, endLine)){ // if player collides with the endline, gameWin method gets called.
                 gameWin();
             }
 
-            if(wPressed.get() && player.getLayoutY() > 0) {
+            if(wPressed.get() && player.getLayoutY() > 0) { // if W gets pressed, move player up
                 player.setLayoutY(player.getLayoutY() - movementVariable);
             }
 
-            if(sPressed.get() && player.getLayoutY() < scene.getPrefHeight() - player.getFitHeight()){
+            if(sPressed.get() && player.getLayoutY() < scene.getPrefHeight() - player.getFitHeight()){ // if S gets pressed, move player down
                     player.setLayoutY(player.getLayoutY() + movementVariable);
             }
 
-            if(aPressed.get() && player.getLayoutX() > 0){
+            if(aPressed.get() && player.getLayoutX() > 0){// if A gets pressed, move player left
                 player.setLayoutX(player.getLayoutX() - movementVariable);
             }
 
-            if(dPressed.get() && player.getLayoutX() < scene.getPrefWidth() - player.getFitWidth()){
+            if(dPressed.get() && player.getLayoutX() < scene.getPrefWidth() - player.getFitWidth()){ // if D gets pressed, move player right.
                 player.setLayoutX(player.getLayoutX() + movementVariable);
             }
         }
     };
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) { // initializes the game components:
+                                                                     // timer label, timer, movement of the player, object's movement
         timerNumLabel.setText(String.valueOf(game_time));
         setTimer();
         movementSetup();
@@ -135,18 +136,18 @@ public class Level3Controller implements Initializable {
         }));
     }
 
-    public void setTimer() {
+    public void setTimer() { // this sets the timer that the player has to beat each level
         Redlightgreenlight game = new Redlightgreenlight();
         labelTimer = new Timer();
         game_time = 30;
         labelTimer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                if(game_time > 0)
+                if(game_time > 0) // if game time is bigger than zero, subtract one and update the timer label
                 {
                     game_time -= 1;
                     Platform.runLater(() -> timerNumLabel.setText(String.valueOf(game_time)));
                 }
-                else{
+                else{ //else you lose and the scene changes to the loseScreen
                     try {
                         game.changeScene("loseScreen.fxml");
                         labelTimer.cancel();
@@ -157,26 +158,23 @@ public class Level3Controller implements Initializable {
                     }
                 }
             }
-        }, 1000,1000);
+        }, 0,1000);
     }
 
-    public void countdownGl() {
+    public void countdownGl() { // count down timer for the green light
         greenTimer = new Timer();
         int random = (int) (Math.random() * 6) + 3;
         greenLightTimer = random;
-        System.out.println(greenLightTimer);
         greenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (greenLightTimer > 1) {
+                if (greenLightTimer > 1) { // if timer is bigger than 1, subtract one from the greenLightTimer integer
                     greenLightTimer -= 1;
-                    System.out.println(greenLightTimer);
-                } else if (greenLightTimer == 1) {
-                    System.out.println("Redlight");
+                } else if (greenLightTimer == 1) { // else it changes to redlight, the label changes to red and the label gets updated to Red light
                     greenredLabel.setTextFill(Color.RED);
                     Platform.runLater(() -> greenredLabel.setText("Red light!"));
                     greenLightTimer -= 1;
-                } else {
+                } else { // after it changes to red light, the seeker turns toward you, and the position of the player gets recorded.
                     peeker.setImage(peeking);
                     x = player.getLayoutX();
                     y = player.getLayoutY();
@@ -187,28 +185,26 @@ public class Level3Controller implements Initializable {
         }, 0, 500);
     }
 
-    public void countdownRl() {
+    public void countdownRl() { // count down timer for the red light
         redTimer = new Timer();
         int random = (int) (Math.random() * 6) + 3;
         redLightTimer = random;
-        System.out.println(redLightTimer);
         redTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (redLightTimer != 0) {
+                if (redLightTimer != 0) { // if redLightTimer is not 0, checkMovement method gets called
                     checkMovement(player, x, y);
                 }
-                if (redLightTimer > 1) {
+                if (redLightTimer > 1) { // if redLightTimer is bigger than 1, 1 gets subtracted from the redLightTimer
                     redLightTimer -= 1;
-                    System.out.println(redLightTimer);
-                } else if (redLightTimer == 1) {
-                    System.out.println("GreenLight");
+                } else if (redLightTimer == 1) { // if redLightTimer is equal to 1, it changes to green light, the label changes its color to green
+                                                 // and the label gets updated to green light. The seeker image gets set to notpeeking.
                     greenredLabel.setTextFill(Color.GREEN);
                     Platform.runLater(() -> greenredLabel.setText("Green light!"));
                     peeker.setImage(notpeeking);
                     redLightTimer -= 1;
 
-                } else {
+                } else {// redTimer gets cancel and countdownGL gets called
                     redTimer.cancel();
                     countdownGl();
                 }
@@ -218,51 +214,52 @@ public class Level3Controller implements Initializable {
     }
 
 
-    public void movementSetup(){
+    public void movementSetup(){ // this method sets the key booleans to true when they are pressed and false when they are released
         scene.setOnKeyPressed(e -> {
-            if(e.getCode() == KeyCode.W) {
+            if(e.getCode() == KeyCode.W) { // if W gets pressed, set boolean to true
                 wPressed.set(true);
             }
 
-            if(e.getCode() == KeyCode.A) {
+            if(e.getCode() == KeyCode.A) { // if A gets pressed, set boolean to true
                 aPressed.set(true);
             }
 
-            if(e.getCode() == KeyCode.S) {
+            if(e.getCode() == KeyCode.S) { // if S gets pressed, set boolean to true
                 sPressed.set(true);
             }
 
-            if(e.getCode() == KeyCode.D) {
+            if(e.getCode() == KeyCode.D) { // if D gets pressed, set boolean to true
                 dPressed.set(true);
             }
         });
 
         scene.setOnKeyReleased(e ->{
-            if(e.getCode() == KeyCode.W) {
+            if(e.getCode() == KeyCode.W) { // if W gets released, set boolean to false
                 wPressed.set(false);
             }
 
-            if(e.getCode() == KeyCode.A) {
+            if(e.getCode() == KeyCode.A) {// if A gets released, set boolean to false
                 aPressed.set(false);
             }
 
-            if(e.getCode() == KeyCode.S) {
+            if(e.getCode() == KeyCode.S) { // if S gets released, set boolean to false
                 sPressed.set(false);
             }
 
-            if(e.getCode() == KeyCode.D) {
+            if(e.getCode() == KeyCode.D) { //if D gets released, set boolean to false
                 dPressed.set(false);
             }
         });
     }
 
-    public boolean checkCollision(ImageView image1, ImageView image2){
-        if(image1.getBoundsInParent().intersects(image2.getBoundsInParent())){
+    public boolean checkCollision(ImageView image1, ImageView image2){ // this method checks collision between ImageViews
+        if(image1.getBoundsInParent().intersects(image2.getBoundsInParent())){ // if the bounds of image1 intersects the bounds of image 2, then return true.
+                                                                               // Otherwise return false.
             return true;
         }
         return false;
     }
-    public void moveImageY(ImageView image1, double velocity, double distance){
+    public void moveImageY(ImageView image1, double velocity, double distance){ // this method moves the image on the y axis as a loop.
         transition = new TranslateTransition();
         transition.setNode(image1);
         transition.setDuration(Duration.seconds(velocity));
@@ -271,7 +268,7 @@ public class Level3Controller implements Initializable {
         transition.setAutoReverse(true);
         transition.play();
     }
-    public void moveImageX(ImageView image1, double velocity, double distance){
+    public void moveImageX(ImageView image1, double velocity, double distance){ // this method moves the image on the x axis as a loop.
         transition = new TranslateTransition();
         transition.setNode(image1);
         transition.setDuration(Duration.seconds(velocity));
@@ -281,8 +278,9 @@ public class Level3Controller implements Initializable {
         transition.play();
     }
 
-    public void checkMovement(ImageView image, double x, double y){
-        if (image.getLayoutX() != x || image.getLayoutY() != y){
+    public void checkMovement(ImageView image, double x, double y){ // this method checks if the player moves from its current position.
+        if (image.getLayoutX() != x || image.getLayoutY() != y){ // if player's location changes, move player back to the start.
+                                                                // Also, the label gets resetted.
             player.setLayoutX(0);
             player.setLayoutY(431);
             redTimer.cancel();
@@ -293,9 +291,8 @@ public class Level3Controller implements Initializable {
         }
     }
 
-    public void gameWin(){
+    public void gameWin(){ // method that changes the scene to the winScreen scene
         Redlightgreenlight game = new Redlightgreenlight();
-        System.out.println("transition");
         try {
             player.setLayoutX(2000);
             labelTimer.cancel();
