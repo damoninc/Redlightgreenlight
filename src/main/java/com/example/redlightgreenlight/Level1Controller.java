@@ -174,13 +174,13 @@ public class Level1Controller implements Initializable {
                     }
                 }
             }
-        }, 0,1000);
+        }, 0,500);
     }
 
     public void countdownGl(){
         greenTimer = new Timer();
         int random = (int)(Math.random() * 6) + 3;
-        greenLightTimer = 5;
+        greenLightTimer = random;
         System.out.println(greenLightTimer);
         greenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -202,14 +202,14 @@ public class Level1Controller implements Initializable {
                 }
 
             }
-        }, 0, 1000);
+        }, 0, 500);
 
     }
 
     public void countdownRl(){
         redTimer = new Timer();
         int random = (int)(Math.random() * 6) + 3;
-        redLightTimer = 5;
+        redLightTimer = random;
         System.out.println(redLightTimer);
         redTimer.scheduleAtFixedRate(new TimerTask() {
             @Override

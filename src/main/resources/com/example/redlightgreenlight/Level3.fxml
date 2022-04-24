@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level3Controller">
+<Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level3Controller">
    <children>
       <ImageView fx:id="endLine1" fitHeight="720.0" fitWidth="1280.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -41,7 +41,7 @@
             <Image url="@neymar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slidingGuy" fitHeight="54.0" fitWidth="106.0" layoutX="884.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="slidingGuy" fitHeight="54.0" fitWidth="106.0" layoutX="884.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@sliding.png" />
          </image>
