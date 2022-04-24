@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="ScreenPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.GameMenuController">
+   <children>
+      <ImageView fx:id="BackgroundIMGView" fitHeight="734.0" fitWidth="1095.0" layoutX="-2.0" layoutY="-7.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../../Project/src/main/resources/com/example/project/impossiblepentagonlooping.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="RedLightLabel" alignment="CENTER" layoutX="88.0" layoutY="2.0" text="REDLIGHT" textAlignment="CENTER" textFill="#be0955">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="96.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.0">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Label fx:id="GreenLightLabel" alignment="CENTER" layoutX="483.0" layoutY="53.0" text="GREENLIGHT" textAlignment="CENTER" textFill="#51eb56">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="96.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.67">
+               <input>
+                  <Glow />
+               </input>
+            </Bloom>
+         </effect>
+      </Label>
+      <Rectangle fx:id="PlayRectangle" fill="#f5f5f5" height="66.0" layoutX="29.0" layoutY="192.0" onMouseEntered="#OnMouseEntered" onMouseExited="#OnMouseExited" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+      <Rectangle fx:id="HowToPlayRectangle" fill="WHITE" height="73.0" layoutX="27.0" layoutY="282.0" onMouseEntered="#OnMouseEntered" onMouseExited="#OnMouseExited" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+      <Rectangle fx:id="ExitRectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="73.0" layoutX="24.0" layoutY="376.0" onMouseEntered="#OnMouseEntered" onMouseExited="#OnMouseExited" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+      <Text fx:id="Play" fill="#be0955" layoutX="29.0" layoutY="243.0" onMouseClicked="#OnMouseClicked" onMouseEntered="#OnMouseEntered" onMouseExited="#OnMouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAY" underline="true" wrappingWidth="174.20619201660156">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="52.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.0">
+               <input>
+                  <Glow level="0.0" />
+               </input>
+            </Bloom>
+         </effect>
+      </Text>
+      <Text fx:id="HowToPlay" fill="#be0955" layoutX="27.0" layoutY="341.0" onMouseClicked="#OnMouseClicked" onMouseEntered="#OnMouseEntered" onMouseExited="#OnMouseClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW TO PLAY" underline="true">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="52.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.0">
+               <input>
+                  <Glow level="0.0" />
+               </input>
+            </Bloom>
+         </effect>
+      </Text>
+      <Text fx:id="Exit" fill="#be0955" layoutX="29.0" layoutY="429.0" onMouseClicked="#OnMouseClicked" onMouseEntered="#OnMouseEntered" onMouseExited="#OnMouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="EXIT" underline="true">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="52.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.0">
+               <input>
+                  <Glow level="0.0" />
+               </input>
+            </Bloom>
+         </effect>
+      </Text>
+      <Rectangle fx:id="InstructionsRectangle" arcHeight="5.0" arcWidth="5.0" fill="#bd095a41" height="418.0" layoutX="363.0" layoutY="282.0" stroke="#be0955" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="8.0" width="699.0">
+         <effect>
+            <Bloom threshold="0.0">
+               <input>
+                  <Glow level="0.0" />
+               </input>
+            </Bloom>
+         </effect></Rectangle>
+      <Text fx:id="InstructionsTextArea" fill="WHITE" layoutX="377.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text will go here" wrappingWidth="197.47006225585938">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="29.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
