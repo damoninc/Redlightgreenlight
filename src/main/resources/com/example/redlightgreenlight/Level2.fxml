@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level2Controller">
+<Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level2Controller">
    <children>
       <ImageView fitHeight="720.0" fitWidth="640.0" pickOnBounds="true">
          <image>
@@ -20,9 +20,9 @@
             <Image url="@roads.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ronaldo" fitHeight="81.0" fitWidth="58.0" layoutX="33.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="player" fitHeight="94.0" fitWidth="101.0" layoutX="-7.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ronaldo.jpg" />
+            <Image url="@Butters.png" />
          </image>
       </ImageView>
       <ImageView fx:id="yellowCar" fitHeight="146.0" fitWidth="136.0" layoutX="121.0" layoutY="-213.0" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
@@ -45,17 +45,27 @@
             <Image url="@GreenCar.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="finishLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="1208.0" layoutY="253.0" stroke="BLACK" strokeType="INSIDE" width="58.0" />
+      <Rectangle fx:id="finishLine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="1201.0" layoutY="249.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="58.0" />
       <Label layoutX="585.0" layoutY="7.0" prefHeight="49.0" prefWidth="101.0" text="Timer:" textFill="#fff7f7">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="timerNumLabel" layoutX="655.0" layoutY="16.0" text="0" textFill="WHITE">
+      <Label fx:id="timerNumLabel" layoutX="657.0" layoutY="15.0" text="0" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
       <Button layoutX="608.0" layoutY="50.0" mnemonicParsing="false" onAction="#start" opacity="0.0" text="Button" />
+      <ImageView fx:id="peeker" fitHeight="73.0" fitWidth="87.0" layoutX="1180.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CartmanNotLooking.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="greenredLabel" layoutX="550.0" layoutY="52.0" text="Green Light!" textAlignment="CENTER" textFill="GREEN">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
