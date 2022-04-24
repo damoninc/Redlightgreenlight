@@ -35,4 +35,5 @@ public class StoryScene4Controller {
         game.changeScene("Level3.fxml");
 
     }
+    //
 }

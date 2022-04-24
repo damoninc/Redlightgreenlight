@@ -37,5 +37,6 @@ public class StoryScene3Controller {
         Redlightgreenlight game = new Redlightgreenlight();
         game.changeScene("Level2.fxml");
     }
+    //
 }
 

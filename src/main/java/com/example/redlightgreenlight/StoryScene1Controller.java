@@ -30,5 +30,5 @@ public class StoryScene1Controller{
         Redlightgreenlight game = new Redlightgreenlight();
         game.changeScene("StoryScene2");
     }
-
+//
 }
