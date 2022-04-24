@@ -80,7 +80,7 @@ public class Level2Controller implements Initializable {
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
-    private int movementVariable = 2;
+    private int movementVariable = 5;
 
     private TranslateTransition transition;
 
