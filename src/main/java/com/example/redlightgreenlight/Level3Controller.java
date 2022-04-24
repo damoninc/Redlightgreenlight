@@ -25,47 +25,49 @@ import java.util.TimerTask;
 public class Level3Controller implements Initializable {
 
     @FXML
-    private ImageView player;
+    private ImageView player; // player
 
     @FXML
-    private ImageView felaini;
+    private ImageView felaini; // obstacle
 
     @FXML
-    private ImageView slidingGuy;
+    private ImageView slidingGuy; // obstacle
 
     @FXML
-    private ImageView messi;
+    private ImageView messi; // obstacle
 
     @FXML
-    private ImageView neymar;
+    private ImageView neymar; // obstacle
 
     @FXML
-    private ImageView courtois;
+    private ImageView courtois; // obstacle
 
     @FXML
-    private ImageView endLine;
+    private ImageView endLine; // endLine Object used for transitioning to the winning scene
 
     @FXML
-    private Label timerNumLabel;
+    private Label timerNumLabel; // timer label
 
     @FXML
-    private Label greenredLabel;
+    private Label greenredLabel; //greenred label
 
     @FXML
-    private Pane scene;
+    private Pane scene; // pane
 
     @FXML
-    private ImageView peeker;
+    private ImageView peeker; // the peeker image
 
     // seeker images
     Image peeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("RefLooking.png")));
     Image notpeeking = new Image(Objects.requireNonNull(getClass().getResourceAsStream("RefNotLooking.png")));
 
     @FXML
-    void start(){
+    void start(){ // Needed for movement
     }
 
-    // GAME FUNCTIONALITY
+    // GAME FUNCTIONALITY ALL BELOW
+    //----------------------------------
+
     int game_time;
     int redLightTimer;
     int greenLightTimer;
@@ -75,6 +77,8 @@ public class Level3Controller implements Initializable {
     double x;
     double y;
 
+    // PLAYER MOVEMENTS
+    // Boolean properties for key presses
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
@@ -82,8 +86,9 @@ public class Level3Controller implements Initializable {
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
-    private int movementVariable = 5; // player's velocity
+    private int movementVariable = 5; // Player movement speed (IMPACTED BY MONITOR'S REFRESH RATE)
 
+    // Used for moving player
     private TranslateTransition transition;
 
 
