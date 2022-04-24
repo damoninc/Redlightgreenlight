@@ -42,7 +42,7 @@
             </Bloom>
          </effect>
       </Label>
-      <Text fx:id="Play" disable="true" fill="#9c0243" layoutX="18.0" layoutY="250.0" onMouseEntered="#playMouseEntered" onMouseExited="#playMouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAY" underline="true" wrappingWidth="174.20619201660156">
+      <Text fx:id="Play" fill="#9c0243" layoutX="18.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAY" underline="true" wrappingWidth="174.20619201660156">
          <font>
             <Font name="Arial Narrow Bold Italic" size="52.0" />
          </font>
@@ -54,8 +54,8 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" layoutX="13.0" layoutY="288.0" mnemonicParsing="false" onAction="#howToPlayPressed" prefHeight="76.0" prefWidth="333.0" textFill="TRANSPARENT" />
-      <Text fx:id="HowToPlay" fill="#9c0243" layoutX="14.0" layoutY="344.0" onMouseEntered="#howToPlayMouseEntered" onMouseExited="#howToPlayMouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW TO PLAY" underline="true">
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="203.0" mnemonicParsing="false" onAction="#playButtonPressed" onMouseEntered="#playMouseEntered" onMouseExited="#playMouseExited" prefHeight="67.0" prefWidth="126.0" textFill="TRANSPARENT" wrapText="true" />
+      <Text fx:id="HowToPlay" fill="#9c0243" layoutX="14.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW TO PLAY" underline="true">
          <font>
             <Font name="Arial Narrow Bold Italic" size="52.0" />
          </font>
@@ -67,8 +67,8 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" layoutX="13.0" layoutY="194.0" mnemonicParsing="false" onAction="#playButtonPressed" prefHeight="76.0" prefWidth="221.0" textFill="TRANSPARENT" wrapText="true" />
-      <Text fx:id="Exit" fill="#9c0243" layoutX="14.0" layoutY="436.0" onMouseEntered="#exitMouseEntered" onMouseExited="#exitMouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="EXIT" underline="true">
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="288.0" mnemonicParsing="false" onAction="#howToPlayPressed" onMouseEntered="#howToPlayMouseEntered" onMouseExited="#howToPlayMouseExited" prefHeight="76.0" prefWidth="310.0" textFill="TRANSPARENT" />
+      <Text fx:id="Exit" fill="#9c0243" layoutX="14.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXIT" underline="true">
          <font>
             <Font name="Arial Narrow Bold Italic" size="52.0" />
          </font>
@@ -80,7 +80,7 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" layoutX="13.0" layoutY="389.0" mnemonicParsing="false" onAction="#exitButtonPressed" prefHeight="67.0" prefWidth="185.0" textFill="TRANSPARENT" />
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="389.0" mnemonicParsing="false" onAction="#exitButtonPressed" onMouseEntered="#exitMouseEntered" onMouseExited="#exitMouseExited" prefHeight="67.0" prefWidth="103.0" textFill="TRANSPARENT" />
       <Rectangle fx:id="InstructionsRectangle" arcHeight="5.0" arcWidth="5.0" fill="#ff149340" height="434.0" layoutX="380.0" layoutY="274.0" opacity="0.0" stroke="#5e0235" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="8.0" width="690.0">
          <effect>
             <Bloom threshold="0.0">

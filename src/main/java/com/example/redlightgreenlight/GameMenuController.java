@@ -32,31 +32,37 @@ public class GameMenuController {
 
     @FXML
     void exitButtonPressed(ActionEvent event) {
+        // Exits game
 
     }
 
     @FXML
     void exitMouseEntered(MouseEvent event) {
+        Exit.setFill(Color.color(0.3176, 0.9216, 0.3373, 1.0));
 
     }
 
     @FXML
     void exitMouseExited(MouseEvent event) {
+        Exit.setFill(Color.color(0.6118, 0.0078, 0.2627, 1.0));
 
     }
 
     @FXML
     void howToPlayMouseEntered(MouseEvent event) {
+        HowToPlay.setFill(Color.color(0.3176, 0.9216, 0.3373, 1.0));
 
     }
 
     @FXML
     void howToPlayMouseExited(MouseEvent event) {
+        HowToPlay.setFill(Color.color(0.6118, 0.0078, 0.2627, 1.0));
 
     }
 
     @FXML
     void howToPlayPressed(ActionEvent event) {
+        // change opacity to 1 for text and rectangle
 
     }
 
@@ -69,14 +75,13 @@ public class GameMenuController {
 
     @FXML
     void playMouseEntered(MouseEvent event) {
-        Play.setFill(Color.GREEN);
-        System.out.println("Hello");
+        Play.setFill(Color.color(0.3176, 0.9216, 0.3373, 1.0));
 
     }
 
     @FXML
     void playMouseExited(MouseEvent event) {
-        Play.setFill(Color.DEEPPINK);
+        Play.setFill(Color.color(0.6118, 0.0078, 0.2627, 1.0));
 
     }
 
