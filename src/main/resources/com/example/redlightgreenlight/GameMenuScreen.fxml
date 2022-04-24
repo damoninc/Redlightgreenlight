@@ -54,7 +54,7 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" layoutX="13.0" layoutY="203.0" mnemonicParsing="false" onAction="#playButtonPressed" onMouseEntered="#playMouseEntered" onMouseExited="#playMouseExited" prefHeight="67.0" prefWidth="126.0" textFill="TRANSPARENT" wrapText="true" />
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="203.0" mnemonicParsing="false" onAction="#playButtonPressed" onMouseEntered="#playMouseEntered" onMouseExited="#playMouseExited" opacity="0.0" prefHeight="67.0" prefWidth="126.0" textFill="TRANSPARENT" wrapText="true" />
       <Text fx:id="HowToPlay" fill="#9c0243" layoutX="14.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW TO PLAY" underline="true">
          <font>
             <Font name="Arial Narrow Bold Italic" size="52.0" />
@@ -67,7 +67,7 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" layoutX="13.0" layoutY="288.0" mnemonicParsing="false" onAction="#howToPlayPressed" onMouseEntered="#howToPlayMouseEntered" onMouseExited="#howToPlayMouseExited" prefHeight="76.0" prefWidth="310.0" textFill="TRANSPARENT" />
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="288.0" mnemonicParsing="false" onAction="#howToPlayPressed" onMouseEntered="#howToPlayMouseEntered" onMouseExited="#howToPlayMouseExited" opacity="0.0" prefHeight="76.0" prefWidth="310.0" textFill="TRANSPARENT" />
       <Text fx:id="Exit" fill="#9c0243" layoutX="14.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXIT" underline="true">
          <font>
             <Font name="Arial Narrow Bold Italic" size="52.0" />
@@ -80,7 +80,7 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" layoutX="13.0" layoutY="389.0" mnemonicParsing="false" onAction="#exitButtonPressed" onMouseEntered="#exitMouseEntered" onMouseExited="#exitMouseExited" prefHeight="67.0" prefWidth="103.0" textFill="TRANSPARENT" />
+      <Button blendMode="DARKEN" layoutX="13.0" layoutY="389.0" mnemonicParsing="false" onAction="#exitButtonPressed" onMouseEntered="#exitMouseEntered" onMouseExited="#exitMouseExited" opacity="0.0" prefHeight="67.0" prefWidth="103.0" textFill="TRANSPARENT" />
       <Rectangle fx:id="InstructionsRectangle" arcHeight="5.0" arcWidth="5.0" fill="#000000bd" height="459.0" layoutX="338.0" layoutY="221.0" opacity="0.0" stroke="#51eb56" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="8.0" width="927.0">
          <effect>
             <Bloom threshold="0.0">

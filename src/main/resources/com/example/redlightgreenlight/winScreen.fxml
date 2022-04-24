@@ -62,7 +62,7 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" cache="true" layoutX="537.0" layoutY="525.0" mnemonicParsing="false" onAction="#playAgainButtonPressed" onMouseEntered="#playAgainMouseEnterted" onMouseExited="#playAgainMouseExited" prefHeight="63.0" prefWidth="229.0" textFill="#ffffff00">
+      <Button blendMode="DARKEN" cache="true" layoutX="537.0" layoutY="525.0" mnemonicParsing="false" onAction="#playAgainButtonPressed" onMouseEntered="#playAgainMouseEntered" onMouseExited="#playAgainMouseExited" opacity="0.0" prefHeight="63.0" prefWidth="229.0" textFill="#ffffff00">
          <font>
             <Font size="24.0" />
          </font>
@@ -79,7 +79,7 @@
             </Bloom>
          </effect>
       </Text>
-      <Button blendMode="DARKEN" layoutX="449.0" layoutY="619.0" mnemonicParsing="false" onAction="#returnMenuButtonPressed" onMouseEntered="#returnMouseEntered" onMouseExited="#returnMouseExited" prefHeight="70.0" prefWidth="405.0" textFill="#ffffff00">
+      <Button blendMode="DARKEN" layoutX="449.0" layoutY="619.0" mnemonicParsing="false" onAction="#returnMenuButtonPressed" onMouseEntered="#returnMouseEntered" onMouseExited="#returnMouseExited" opacity="0.0" prefHeight="70.0" prefWidth="405.0" textFill="#ffffff00">
          <font>
             <Font name="Arial Narrow Bold Italic" size="38.0" />
          </font>

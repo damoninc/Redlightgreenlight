@@ -32,7 +32,7 @@ public class winScreenController {
 
 
     @FXML
-    void playAgainMouseEnterted(MouseEvent event) {
+    void playAgainMouseEntered(MouseEvent event) {
         PlayAgain.setFill(Color.color(0.3176, 0.9216, 0.3373, 1.0)); // Changes color to green
         PlayAgain.setTranslateX(30);  // Moves PlayAgain to the right
 
