@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
@@ -40,7 +41,13 @@ public class Level1Controller implements Initializable {
     private Rectangle finishLine;
 
     @FXML
-    private Rectangle redGreenRectangle;
+    private Label greenredLabel;
+
+    @FXML
+    private ImageView peeker;
+
+    Image peeking = new Image(getClass().getResourceAsStream("SansLooking.png"));
+    Image notpeeking = new Image(getClass().getResourceAsStream("SansNotLooking.png"));
 
     @FXML
     void start(){
@@ -154,9 +161,11 @@ public class Level1Controller implements Initializable {
                     System.out.println(greenLightTimer);
                 } else if (greenLightTimer == 1) {
                     System.out.println("Redlight");
-                    redGreenRectangle.setFill(Color.RED);
+                    greenredLabel.setTextFill(Color.RED);
+                    Platform.runLater(() -> greenredLabel.setText("Red light!"));
                     greenLightTimer -= 1;
                 }else{
+                    peeker.setImage(peeking);
                     x = player.getLayoutX();
                     y = player.getLayoutY();
                     greenTimer.cancel();
@@ -184,7 +193,10 @@ public class Level1Controller implements Initializable {
                     System.out.println(redLightTimer);
                 } else if (redLightTimer == 1) {
                     System.out.println("GreenLight");
-                    redGreenRectangle.setFill(Color.GREEN);
+                    greenredLabel.setTextFill(Color.GREEN);
+                    System.out.println(greenredLabel.getTextFill());
+                    Platform.runLater(() -> greenredLabel.setText("Green light!"));
+                    peeker.setImage(notpeeking);
                     redLightTimer -= 1;
 
                 }else{
@@ -255,7 +267,8 @@ public class Level1Controller implements Initializable {
             player.setLayoutX(0);
             player.setLayoutY(431);
             redTimer.cancel();
-            redGreenRectangle.setFill(Color.GREEN);
+            greenredLabel.setTextFill(Color.GREEN);
+            Platform.runLater(() -> greenredLabel.setText("Green light!"));
             countdownGl();
         }
     }
@@ -276,6 +289,8 @@ public class Level1Controller implements Initializable {
         try {
             player.setLayoutX(2000);
             labelTimer.cancel();
+            greenTimer.cancel();
+            redTimer.cancel();
             game.changeScene("Level2.fxml");
 
         } catch (IOException e) {
