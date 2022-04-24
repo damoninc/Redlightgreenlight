@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.redlightgreenlight.Level3Controller">
    <children>
@@ -19,8 +20,6 @@
             <Image url="@ronaldo.png" />
          </image>
       </ImageView>
-      <Label layoutX="70.0" layoutY="24.0" text="Time: " textFill="WHITE" />
-      <Label fx:id="timerNumLabel" layoutX="103.0" layoutY="25.0" text="0" textFill="WHITE" />
       <ImageView fx:id="messi" fitHeight="82.0" fitWidth="53.0" layoutX="606.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@messi.png" />
@@ -49,6 +48,26 @@
       <ImageView fx:id="felaini" fitHeight="82.0" fitWidth="53.0" layoutX="368.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@felaini.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="greenredLabel" layoutX="560.0" layoutY="62.0" text="Green Light!" textAlignment="CENTER" textFill="GREEN">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="17.0" prefHeight="49.0" prefWidth="101.0" text="Timer:" textFill="#fff7f7">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="timerNumLabel" layoutX="667.0" layoutY="25.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="peeker" fitHeight="135.0" fitWidth="130.0" layoutX="1175.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RefNotLooking.png" />
          </image>
       </ImageView>
    </children>

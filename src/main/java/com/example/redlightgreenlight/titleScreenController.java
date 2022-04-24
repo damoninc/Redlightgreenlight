@@ -9,7 +9,7 @@ public class titleScreenController {
     @FXML
     void playButtonPressed(ActionEvent event) throws IOException {
         Redlightgreenlight game = new Redlightgreenlight();
-        game.changeScene("Level1.fxml");
+        game.changeScene("Level3.fxml");
 
     }
 

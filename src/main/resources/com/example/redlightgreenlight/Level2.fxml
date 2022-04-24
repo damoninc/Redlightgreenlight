@@ -20,12 +20,12 @@
             <Image url="@roads.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="player" fitHeight="94.0" fitWidth="101.0" layoutX="-7.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="player" fitHeight="85.0" fitWidth="87.0" layoutX="-7.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Butters.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="yellowCar" fitHeight="146.0" fitWidth="136.0" layoutX="121.0" layoutY="-213.0" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+      <ImageView fx:id="yellowCar" fitHeight="146.0" fitWidth="136.0" layoutX="139.0" layoutY="-159.0" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
          <image>
             <Image url="@car_topview.png" />
          </image>
@@ -40,7 +40,7 @@
             <Image url="@BlueCar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="greenCar" fitHeight="93.0" fitWidth="168.0" layoutX="1034.0" layoutY="802.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+      <ImageView fx:id="greenCar" fitHeight="93.0" fitWidth="168.0" layoutX="1028.0" layoutY="774.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
          <image>
             <Image url="@GreenCar.png" />
          </image>

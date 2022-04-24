@@ -91,22 +91,22 @@ public class Level2Controller implements Initializable {
 
             //COLLISIONS
             if (checkCollision(player, yellowCar)){
-                player.setLayoutX(120);
+                player.setLayoutX(0);
                 player.setLayoutY(260);
 
             }
             if (checkCollision(player, blackCar)){
-                player.setLayoutX(120);
+                player.setLayoutX(0);
                 player.setLayoutY(260);
 
             }
             if (checkCollision(player, blueCar)){
-                player.setLayoutX(120);
+                player.setLayoutX(0);
                 player.setLayoutY(260);
 
             }
             if (checkCollision(player, greenCar)){
-                player.setLayoutX(120);
+                player.setLayoutX(0);
                 player.setLayoutY(260);
             }
             if (checkCollision(player, finishLine)){
@@ -142,7 +142,7 @@ public class Level2Controller implements Initializable {
         moveImage(yellowCar, 3, false, 1300);
         moveImage(blackCar, 2.5, true, 1300);
         moveImage(blueCar, 1.5, false, 1300);
-        moveImage(greenCar, 1.3, true, 1300);
+        moveImage(greenCar, 2.5, true, 1300);
         keyPressed.addListener(((observableValue, aBoolean, t1)-> {
             timer.start();
         }));
@@ -151,7 +151,7 @@ public class Level2Controller implements Initializable {
     public void setTimer() {
         Redlightgreenlight game = new Redlightgreenlight();
         labelTimer = new Timer();
-        game_time = 30;
+        game_time = 45;
         labelTimer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 if(game_time > 0)
@@ -164,6 +164,8 @@ public class Level2Controller implements Initializable {
                         System.out.println("transition");
                         game.changeScene("loseScreen.fxml");
                         labelTimer.cancel();
+                        greenTimer.cancel();
+                        redTimer.cancel();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -287,7 +289,7 @@ public class Level2Controller implements Initializable {
     public void checkMovement(ImageView image, double x, double y){
         if (image.getLayoutX() != x || image.getLayoutY() != y){
             player.setLayoutX(0);
-            player.setLayoutY(431);
+            player.setLayoutY(260);
             redTimer.cancel();
             greenredLabel.setTextFill(Color.GREEN);
             Platform.runLater(() -> greenredLabel.setText("Green light!"));
