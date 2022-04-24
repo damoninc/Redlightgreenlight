@@ -9,7 +9,7 @@ public class loseScreenController {
     @FXML
     void retryButtonPressed(ActionEvent event) throws IOException {
         Redlightgreenlight trans = new Redlightgreenlight();
-        trans.changeScene("titleScreen.fxml");
+        trans.changeScene("GameMenuScreen.fxml");
 
     }
 
