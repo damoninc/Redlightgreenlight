@@ -85,7 +85,7 @@ public class Level2Controller implements Initializable {
 
     //PLAYER MOVEMENT
     // Player movement speed
-    private int movementVariable = 5;
+    private int movementVariable = 4;
 
     // Moves player
     private TranslateTransition transition;
