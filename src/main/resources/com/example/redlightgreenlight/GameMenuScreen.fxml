@@ -94,7 +94,7 @@
             <Font name="Arial Narrow Bold Italic" size="53.0" />
          </font>
       </Text>
-      <Text fx:id="howToPlayTextPt2" fill="WHITE" layoutX="349.0" layoutY="348.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The objective of the game is to get to the finish line without being seen by the peeker. At the top of your screen you will see Red and Green Light indicators that notify you when you're able to move and when you should stop. You will have 30 seconds to complete each level before time runs out. If you are caught by the peeker, or hit by a moving object, you will be sent back to the start line. If you fail to reach the finish line before time is up, then it's game over! Work quickly, but don't get greedy with your moves, it could cost you!   " textAlignment="CENTER" wrappingWidth="877.7737121582031">
+      <Text fx:id="howToPlayTextPt2" fill="WHITE" layoutX="349.0" layoutY="348.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The objective of the game is to get to the finish line without being seen by the peeker. At the top of your screen you will see Red and Green Light indicators that notify you when you're able to move and when you should stop. You will have limited time to complete each level before time runs out. If you are caught by the peeker, or hit by a moving object, you will be sent back to the start line. If you fail to reach the finish line before time is up, then it's game over! Work quickly, but don't get greedy with your moves, it could cost you!   " textAlignment="CENTER" wrappingWidth="877.7737121582031">
          <font>
             <Font name="Arial Narrow Bold Italic" size="31.0" />
          </font>
