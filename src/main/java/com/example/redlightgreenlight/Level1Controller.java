@@ -91,7 +91,7 @@ public class Level1Controller implements Initializable {
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
     // Player movement speed (IMPACTED BY MONITOR'S REFRESH RATE)
-    private int movementVariable = 2;
+    private int movementVariable = 3;
 
     // Used for moving player
     private TranslateTransition transition;
@@ -110,25 +110,25 @@ public class Level1Controller implements Initializable {
             }
 
             if (checkCollision(player, rock1)){
-                movementVariable = 1;
+                movementVariable = 2;
             }
 
             else if (checkCollision(player, rock2)){
-                movementVariable = 1;
+                movementVariable = 2;
             }
 
             else if (checkCollision(player, snowman1)){
-                movementVariable = 1;
+                movementVariable = 2;
             }
 
             else if (checkCollision(player, snowman2)){
-                movementVariable = 1;
+                movementVariable = 2;
             }
 
             else if (checkCollision(player, snowman3)){
-                movementVariable = 1;
+                movementVariable = 2;
             }
-            else movementVariable = 2;
+            else movementVariable = 3;
 
 
             // Movement inputs

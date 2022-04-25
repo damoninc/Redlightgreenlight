@@ -86,7 +86,7 @@ public class Level3Controller implements Initializable {
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
 
-    private int movementVariable = 5; // Player movement speed (IMPACTED BY MONITOR'S REFRESH RATE)
+    private int movementVariable = 3; // Player movement speed (IMPACTED BY MONITOR'S REFRESH RATE)
 
     // Used for moving player
     private TranslateTransition transition;
