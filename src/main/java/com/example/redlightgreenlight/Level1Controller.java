@@ -327,7 +327,7 @@ public class Level1Controller implements Initializable {
             labelTimer.cancel();
             greenTimer.cancel();
             redTimer.cancel();
-            game.changeScene("Level2.fxml");
+            game.changeScene("StoryScene3.fxml");
 
         } catch (IOException e) {
             e.printStackTrace();
