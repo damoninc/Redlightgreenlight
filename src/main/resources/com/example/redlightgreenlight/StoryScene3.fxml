@@ -35,7 +35,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="175.0" layoutX="128.0" layoutY="21.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="10.0" width="1037.0" />
-      <Text fill="WHITE" layoutX="164.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jimmy made it through level 1, and has now entered level 2. Things are so different, it's like a dream! He looks at the busy streets he has to cross, and at the end was a cop who looks like he means business. Can Jimmy make it though . . " wrappingWidth="980.767333984375">
+      <Text fill="WHITE" layoutX="164.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jimmy made it through level 1, and has now entered level 2. Things are so different, it's like a dream! He looks at the busy streets he has to cross, and at the end was a cop who looks like he means business. Can Jimmy make it through . . " wrappingWidth="980.767333984375">
          <font>
             <Font name="Arial Narrow Bold Italic" size="32.0" />
          </font>
@@ -45,7 +45,7 @@
             <Font name="Arial Narrow Bold Italic" size="41.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="805.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Respect My AUTHORITAH!">
+      <Text fill="WHITE" layoutX="801.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Respect My AUTHORITAH!">
          <font>
             <Font name="Arial Narrow Bold Italic" size="33.0" />
          </font>

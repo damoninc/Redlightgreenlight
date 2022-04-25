@@ -40,6 +40,11 @@
             <Font name="Arial Narrow Bold Italic" size="29.0" />
          </font>
       </Text>
+      <Text fill="WHITE" layoutX="159.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I'll beat you with my legs if i have to!">
+         <font>
+            <Font name="Arial Narrow Bold Italic" size="28.0" />
+         </font>
+      </Text>
       <Text fx:id="PlayLevel3" fill="#9c0243" layoutX="705.0" layoutY="616.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Play Level 3" underline="true">
          <font>
             <Font name="Arial Narrow Bold Italic" size="53.0" />
