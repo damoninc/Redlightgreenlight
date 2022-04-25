@@ -80,7 +80,7 @@ public class GameMenuController {
     @FXML
     void playButtonPressed(ActionEvent event) throws IOException {  // Plays the first level when Play is pressed
         Redlightgreenlight game = new Redlightgreenlight();  // starts a new game
-        game.changeScene("Level1.fxml");  // changes scene to level 1
+        game.changeScene("StoryScene1.fxml");  // changes scene to level 1
 
     }
 
