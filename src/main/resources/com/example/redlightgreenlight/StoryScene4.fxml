@@ -35,7 +35,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="168.0" layoutX="48.0" layoutY="21.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="10.0" width="1174.0" />
-      <Text fill="WHITE" layoutX="72.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jimmy made it to the final level, and it was game time... Literally! Jimmy's form changed again, but this time into the famous soccer player, Cristiano Ronaldo . . but with huge legs for some reason. The crowd was cheering, and other soccer players started entering the field. Jimmy must score the winning goal to be free from the game. This is it! All of nothing!" wrappingWidth="1141.9310913085938">
+      <Text fill="WHITE" layoutX="72.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jimmy made it to the final level, and it was game time... Literally! Jimmy's form changed again, but this time into the famous soccer player, Cristiano Ronaldo . . but with huge legs for some reason. The crowd was cheering, and other soccer players started entering the field. Jimmy must score the winning goal to be free from the game. This is it! All or nothing!" wrappingWidth="1141.9310913085938">
          <font>
             <Font name="Arial Narrow Bold Italic" size="29.0" />
          </font>
