@@ -145,7 +145,7 @@ public class Level3Controller implements Initializable {
     public void setTimer() { // this sets the timer that the player has to beat each level
         Redlightgreenlight game = new Redlightgreenlight();
         labelTimer = new Timer();
-        game_time = 30;
+        game_time = 40;
         labelTimer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 if(game_time > 0) // if game time is bigger than zero, subtract one and update the timer label

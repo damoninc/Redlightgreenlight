@@ -15,6 +15,7 @@ public class Redlightgreenlight extends Application {
     }
 
 
+    // Stage object used for scene changing
     private static Stage game_stage;
 
     @Override
@@ -24,9 +25,11 @@ public class Redlightgreenlight extends Application {
         Scene scene = new Scene(root);
         primaryStage.setTitle("Red Light Green Light");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
+    // Accessible method used to change scenes in various controllers
     public void changeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         game_stage.getScene().setRoot(pane);

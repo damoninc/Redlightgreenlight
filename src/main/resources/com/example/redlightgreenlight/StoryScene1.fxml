@@ -25,7 +25,7 @@
             <Font name="Arial Narrow Bold Italic" size="37.0" />
          </font>
       </Text>
-      <Text fill="#ff0101" layoutX="93.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot; You have 30 seconds to complete each level and beat the game. Fail, and you shall be stuck in this VR world Forever. &quot;" textAlignment="CENTER" wrappingWidth="1070.5564575195312">
+      <Text fill="#ff0101" layoutX="93.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot; You have limited time to complete each level and beat the game. Fail, and you shall be stuck in this VR world Forever. &quot;" textAlignment="CENTER" wrappingWidth="1070.5564575195312">
          <font>
             <Font name="Arial Narrow Bold Italic" size="37.0" />
          </font>
